@@ -62,7 +62,18 @@ public function edit()
 	 	$this->genero_model->update($id,$array_item);
 	 	redirect('genero');
  	}
-
+	
+public function quitar()
+ 	{
+ 		$result=$this->genero_model->quitar($this->uri->segment(3));
+	 	if(!$result)
+		{
+			echo "<script language='JavaScript'> alert('El género no pudo eliminarse revise permisos'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+ 	}
 
 
 public function listar()
