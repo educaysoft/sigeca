@@ -31,7 +31,7 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva modoevaluacion";
+		$data['title']="Nuevo modo de evaluacion";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('modoevaluacion_form',$data);
 	 	$this->load->view('template/page_footer');

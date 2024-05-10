@@ -11,27 +11,22 @@
         <li> <?php echo anchor('sexo/edit/'.$sexo['idsexo'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('sexo/delete/'.$sexo['idsexo'],'Delete'); ?></li>
         <li> <?php echo anchor('sexo/listar/','Listar'); ?></li>
-
     </ul>
 </div>
 <br>
 
 
 <?php echo form_hidden('idsexo',$sexo['idsexo']) ?>
-    <label class="col-md-2 col-form-label"> Id Tipo Doc:</label>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id:</label>
 	<div class="col-md-10">
-
-     <?php echo form_input('idsexo',$sexo['idsexo'],array("disabled"=>"disabled",'placeholder'=>'Idsexos')) ?>
- 
+        <?php echo form_input('idsexo',$sexo['idsexo'],array("disabled"=>"disabled",'placeholder'=>'Idsexos')) ?>
 	</div> 
 </div> 
-
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Descripcion:</label>
 	<div class="col-md-10">
-
-     <?php echo form_input('nombre',$sexo['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre')) ?>
-
+        <?php echo form_input('nombre',$sexo['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre')) ?>
 	</div> 
 </div> 
 <?php echo form_close(); ?>
