@@ -65,7 +65,7 @@ public function edit()
 	
 public function quitar()
  	{
- 		$result=$this->genero_model->quitar($this->uri->segment(3));
+ 		$result=$this->genero_model->quitar($this->uri->segment(3))->row_array();
 	 	if(!$result)
 		{
 			echo "<script language='JavaScript'> alert('El género no pudo eliminarse revise permisos'); </script>";
