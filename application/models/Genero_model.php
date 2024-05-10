@@ -34,9 +34,9 @@ class Genero_model extends CI_model {
 			$result=false;
 		return $result;
  	}
-	 function quitar($id)
+
+	public function quitar($id)
 	 {
- 
 		 $this->db->select('*');
 		 $this->db->from('genero0');
 		  $this->db->where('idgenero',$id);
