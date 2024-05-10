@@ -67,10 +67,11 @@ public function edit()
 
 public function listar()
 {
-	$data['genero_list'] = $this->sexo_model->lista_generos()->result();
-	$data['title'] = "Tipo documento";
-	$this->load->view('template/page_header');
-	$this->load->view('genero_list', $data);
+	
+  $data['generos'] = $this->genero_model->lista_generos()->result();
+  $data['title']="Lista de Generos";
+	$this->load->view('template/page_header');		
+  $this->load->view('genero_list',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -81,7 +82,7 @@ function genero_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->genero_model->lista_generos();
+	 	$data0 = $this->genero_model->lista_generoes();
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idgenero,$r->nombre,
