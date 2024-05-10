@@ -6,7 +6,7 @@
     <label class="col-md-2 col-form-label"> Id:</label>
 	<div class="col-md-10">
 
-  <?php echo form_textarea('idgenero',$genero['idgenero'],array('placeholder'=>'Idgenero')) ?>
+  <?php echo form_input('idgenero',$genero['idgenero'],array('placeholder'=>'Idgenero')) ?>
  
 	</div> 
 </div> 
