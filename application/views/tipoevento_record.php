@@ -17,7 +17,7 @@
 <br>
 
 
-<?php echo form_hidden('idtipoevento',$tipoevento['idtipoevento']) ?>
+<?php echo form_hidden('idtipoevento',$tipoevento['idtipoeveto']) ?>
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Id:</label>
