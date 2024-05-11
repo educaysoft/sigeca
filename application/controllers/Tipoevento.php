@@ -7,23 +7,22 @@ class Tipoevento extends CI_Controller{
       $this->load->model('tipoevento_model');
 }
 
-public function index(){
-	//if(isset($this->session->userdata['logged_in'])){
-		$data['tipoevento']=$this->tipoevento_model->tipoevento(1)->row_array();
+public function index() {
+	if(isset($this->session->userdata['logged_in'])){
+		$data['tipoevento']=$this->tipoevento_model->elultimo();
 		$data['title']="Lista de tipoeventoes";
 		$this->load->view('template/page_header');
 		$this->load->view('tipoevento_record',$data);
 		$this->load->view('template/page_footer');
-	/*}else{
+	} else {
 	$this->load->view('template/page_header.php');
 	$this->load->view('login_form');
 	 $this->load->view('template/page_footer.php');
-	}*/
+	}
 }
 
 
-public function add()
-{
+public function add(){
 		$data['title']="Nueva tipoevento";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('tipoevento_form',$data);
@@ -31,14 +30,20 @@ public function add()
 }
 
 
-public function  save()
-	{
+public function  save() {
 	 	$array_item=array(
 	 	'idtipoevento' => $this->input->post('idtipoevento'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
 	 	$this->tipoevento_model->save($array_item);
-	 	redirect('tipoevento');
+	 	
+		if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('Este Evento ya Existe'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
  	}
 
 
@@ -54,11 +59,9 @@ public function edit()
 }
 
 
-	public function  save_edit()
-	{
+	public function  save_edit() {
 		$id=$this->input->post('idtipoevento');
 	 	$array_item=array(
-		 	
 		 	'idtipoevento' => $this->input->post('idtipoevento'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
@@ -75,24 +78,35 @@ public function edit()
 	//	$db['default']['db_debug']=FALSE
  	}
 
+	public function quitar()
+ 	{
+ 		$result=$this->tipoevento_model->quitar($this->uri->segment(3));
+	 	if(!$result)
+		{
+			echo "<script language='JavaScript'> alert('El Evento no pudo eliminarse revise permisos'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+ 	}
 
-public function listar()
-{
-	
-  $data['title']="Tipoevento";
-	$this->load->view('template/page_header');		
-  $this->load->view('tipoevento_list',$data);
-	$this->load->view('template/page_footer');
-}
+
+
+	// Método para listar todos los tipos de eventos
+    public function listar() {
+        $data['tipoevento_list'] = $this->tipoevento_model->lista_tipoeventos()->result();
+        $data['title'] = "Tipo documento";
+        $this->load->view('template/page_header');
+        $this->load->view('tipoevento_list', $data);
+        $this->load->view('template/page_footer');
+    }
 
 
 
-function tipoevento_data()
-{
+function tipoevento_data() {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
-
 
 	 	$data0 = $this->tipoevento_model->lista_tipoeventos();
 		$data=array();
@@ -110,13 +124,12 @@ function tipoevento_data()
 	
 			
 
-}
+	}
 
 
 
 
-public function actual()
-{
+	public function actual() {
 	$data['tipoevento'] = $this->tipoevento_model->tipoevento($this->uri->segment(3))->row_array();
   	if(!empty($data))
   	{
@@ -129,59 +142,64 @@ public function actual()
     		$this->load->view('registro_vacio');
     		$this->load->view('template/page_footer');
   	}
- }
-
-
-
-
-
-
-
-
-
-
-public function elprimero()
-{
-	$data['tipoevento'] = $this->tipoevento_model->elprimero();
-  if(!empty($data))
-  {
-    $data['title']="Tipoevento";
-    $this->load->view('template/page_header');		
-    $this->load->view('tipoevento_record',$data);
-    $this->load->view('template/page_footer');
-  }else{
-    $this->load->view('template/page_header');		
-    $this->load->view('registro_vacio');
-    $this->load->view('template/page_footer');
-  }
- }
-
-public function elultimo()
-{
-	$data['tipoevento'] = $this->tipoevento_model->elultimo();
-  if(!empty($data))
-  {
-    $data['title']="Tipoevento";
-  
-    $this->load->view('template/page_header');		
-    $this->load->view('tipoevento_record',$data);
-    $this->load->view('template/page_footer');
-  }else{
-
-    $this->load->view('template/page_header');		
-    $this->load->view('registro_vacio');
-    $this->load->view('template/page_footer');
-  }
 }
 
-public function siguiente(){
- // $data['tipoevento_list']=$this->tipoevento_model->lista_tipoevento()->result();
-	$data['tipoevento'] = $this->tipoevento_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Tipoevento";
-	$this->load->view('template/page_header');		
-  $this->load->view('tipoevento_record',$data);
-	$this->load->view('template/page_footer');
-}
+ public function elprimero() {
+        if (isset($this->session->userdata['logged_in'])) {
+            $data['tipoevento'] = $this->tipoevento_model->elprimero();
+            if (!empty($data)) {
+                $data['title'] = "Tipo documento";
+                $this->load->view('template/page_header');
+                $this->load->view('tipoevento_record', $data);
+                $this->load->view('template/page_footer');
+            } else {
+                $this->load->view('template/page_header');
+                $this->load->view('registro_vacio');
+                $this->load->view('template/page_footer');
+            }
+        } else {
+            $this->load->view('template/page_header.php');
+            $this->load->view('login_form');
+            $this->load->view('template/page_footer.php');
+        }
+    }
+
+	// Método para mostrar el último registro de tipo de evento
+    public function elultimo() {
+        if (isset($this->session->userdata['logged_in'])) {
+            $data['tipoevento'] = $this->tipoevento_model->elultimo();
+            if (!empty($data)) {
+                $data['title'] = "Tipo documento";
+                $this->load->view('template/page_header');
+                $this->load->view('tipoevento_record', $data);
+                $this->load->view('template/page_footer');
+            } else {
+                $this->load->view('template/page_header');
+                $this->load->view('registro_vacio');
+                $this->load->view('template/page_footer');
+            }
+        } else {
+            $this->load->view('template/page_header.php');
+            $this->load->view('login_form');
+            $this->load->view('template/page_footer.php');
+        }
+    }
+
+// Método para mostrar el siguiente registro de tipo evento
+    public function siguiente() {
+        if (isset($this->session->userdata['logged_in'])) {
+            $data['tipoevento'] = $this->tipoevento_model->siguiente($this->uri->segment(3))->row_array();
+            $data['title'] = "Tipo documento";
+            $this->load->view('template/page_header');
+            $this->load->view('tipoevento_record', $data);
+            $this->load->view('template/page_footer');
+        } else {
+            $this->load->view('template/page_header.php');
+            $this->load->view('login_form');
+            $this->load->view('template/page_footer.php');
+        }
+    }
+
 
 public function anterior(){
  // $data['tipoevento_list']=$this->tipoevento_model->lista_tipoevento()->result();
@@ -191,5 +209,37 @@ public function anterior(){
   $this->load->view('tipoevento_record',$data);
 	$this->load->view('template/page_footer');
 }
+
+	// Método para mostrar el  registro previo del actual en  sexo
+    public function anterior(){
+  	    if(isset($this->session->userdata['logged_in'])){
+            $data['tipoevento'] = $this->tipoevento_model->anterior($this->uri->segment(3))->row_array();
+            $data['title']="Tipo documento";
+            $this->load->view('template/page_header');		
+            $this->load->view('tipoevento_record',$data);
+            $this->load->view('template/page_footer');
+        } else{
+	 	    $this->load->view('template/page_header.php');
+		    $this->load->view('login_form');
+	 	    $this->load->view('template/page_footer.php');
+        } 
+    }
+
+
+
+public function get_tipoevento() {
+    $this->load->database();
+    $this->load->helper('form');
+    if($this->input->post('idtipoevento')) {
+        $this->db->select('*');
+        $this->db->where(array('idtipoevento' => $this->input->post('idtipoevento')));
+        $query = $this->db->get('documento');
+	$data=$query->result();
+	echo json_encode($data);
+	}
+
+}
+
+
 
 }
