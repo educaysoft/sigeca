@@ -11,7 +11,7 @@ public function index(){
 
 	  	$data['genero']=$this->genero_model->genero(1)->row_array();
 
-  		$data['title']="Lista de Generos";
+  		$data['title']="Géneros";
 		$this->load->view('template/page_header');		
   		$this->load->view('genero_record',$data);
 		$this->load->view('template/page_footer');
@@ -62,7 +62,18 @@ public function edit()
 	 	$this->genero_model->update($id,$array_item);
 	 	redirect('genero');
  	}
-
+	
+public function quitar()
+ 	{
+ 		$result=$this->genero_model->quitar($this->uri->segment(3))->row_array();
+	 	if(!$result)
+		{
+			echo "<script language='JavaScript'> alert('El género no pudo eliminarse revise permisos'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+ 	}
 
 
 public function listar()

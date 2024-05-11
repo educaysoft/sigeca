@@ -1,50 +1,75 @@
-<html>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+</style>
+
+<div id="eys-nav-i">
+    <ul>
+        <li><?php echo anchor('genero', 'Home'); ?></li>
+    </ul>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3>Genero - Listar</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped table-bordered table-hover" id="mydatac">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th style="text-align: right;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="show_data"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 
-<body>
 
-<h2> <?php echo $title;  ?></h2>
-<hr/>
-<?php echo anchor('genero/add', 'NUEVO ORDENADOR'); ?>
-<br>
-<br>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var mytabla = $('#mydatac').DataTable({
+            "ajax": {
+                url: '<?php echo site_url('genero/genero_data')?>',
+                type: 'GET'
+            }
+        });
 
-<table border="1">
-<tr>
-<th> ID ORDENADOR</th>
-<th> DESCRIPCION</th>
-<th> cantidad</th>
-</tr>
-<tbody>
-<?php  foreach($generos as $list) { ?>
-<tr>
-
-<td> <?php echo $list->idgenero ?></td>
-<td> <?php echo $list->nombre?></td>
-<td> <?php echo anchor('documento/listarxgenero/'.$list->idgenero,'ver') ?> || <?php echo anchor('documento/add/'.$list->idgenero,'Nuevo') ?></td>
- </tr>
-
-
-<?php } ?>
-
-</tbody>
-</table>
-
-
-
-
-
-
-
-
-</body>
-
-
-
-
-
-
-
-
-
-</html>
+        $('#show_data').on('click','.item_ver', function(){
+            var id = $(this).data('idgenero');
+            var retorno = $(this).data('retorno');
+            window.location.href = retorno + '/' + id;
+        });
+    });
+</script>

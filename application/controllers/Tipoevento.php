@@ -22,7 +22,8 @@ public function index() {
 }
 
 
-public function add(){
+public function add()
+{
 		$data['title']="Nueva tipoevento";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('tipoevento_form',$data);

@@ -19,7 +19,7 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva Tipo de documento";
+		$data['title']="Nuevo tipo de documento";
 	 	$this->load->view('sexo_form',$data);
 
 

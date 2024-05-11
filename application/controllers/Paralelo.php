@@ -24,7 +24,7 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva paralelo";
+		$data['title']="Nuevo paralelo";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('paralelo_form',$data);
 	 	$this->load->view('template/page_footer');

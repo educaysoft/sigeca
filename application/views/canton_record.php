@@ -18,36 +18,30 @@
 
 
 <?php echo form_hidden('idcanton',$canton['idcanton']) ?>
-<table>
 
+<div class="form-group row">
 
- 
- 
+  <label class="col-md-2 col-form-label"> Id:</label>
+  <div class="col-md-10">
 
-
-  <tr>
-     <td>Id Tipo Doc:</td>
-     <td><?php echo form_input('idcanton',$canton['idcanton'],array("disabled"=>"disabled",'placeholder'=>'Idcantons')) ?></td>
-  </tr>
- 
- 
- 
-  <tr>
-     <td>Descripción:</td>
-     <td><?php echo form_input('nombre',$canton['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre')) ?></td>
-  </tr>
-
-
+     <?php echo form_input('idcanton',$canton['idcanton'],array("disabled"=>"disabled",'placeholder'=>'Idcantons')) ?>
   
+    </div>
+</div>
+
+<div class="form-group row">
+
+  <label class="col-md-2 col-form-label"> Nombre:</label>
+  <div class="col-md-10">
+
+     <?php echo form_input('nombre',$canton['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre')) ?>
+     </div>
+</div>
 
 
 
 
 
-
-
-
-</table>
 <?php echo form_close(); ?>
 
 

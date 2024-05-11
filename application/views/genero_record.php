@@ -1,10 +1,8 @@
 <div id="eys-nav-i">
-    <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-    <ul>
-<?php
-if(isset($genero))
-{
-?>
+
+<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+<?php echo form_open('sexo/save_edit') ?>
+<ul>
         <li> <?php echo anchor('genero/elprimero/', 'primero'); ?></li>
         <li> <?php echo anchor('genero/siguiente/'.$genero['idgenero'], 'siguiente'); ?></li>
         <li> <?php echo anchor('genero/anterior/'.$genero['idgenero'], 'anterior'); ?></li>
@@ -13,48 +11,28 @@ if(isset($genero))
         <li> <?php echo anchor('genero/edit/'.$genero['idgenero'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('genero/delete/'.$genero['idgenero'],'Delete'); ?></li>
         <li> <?php echo anchor('genero/listar/','Listar'); ?></li>
-
-<?php 
-}else{
-?>
-
-        <li> <?php echo anchor('genero/add', 'Nuevo'); ?></li>
-<?php
-}
-?>
-    </ul>
+</ul>
 </div>
 <br>
-<br>
-
 
 <?php echo form_hidden('idgenero',$genero['idgenero']) ?>
-<table>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id:</label>
+	<div class="col-md-10">
 
-  <tr>
-     <td>Id Institucion:</td>
-     <td><?php
-
-  $eys_arrctl=array("name"=>'idgenero','value'=>$genero['idgenero'],"disabled"=>"disabled",'placeholder'=>'Idgeneros','style'=>'width:500px;');
- echo form_input($eys_arrctl) ?></td>
-  </tr>
+     <?php echo form_input('idgenero',$genero['idgenero'],array("disabled"=>"disabled",'placeholder'=>'Idgeneros')) ?>
  
- <tr>
-      <td>Nombre:</td>
-      <td><?php
+	</div> 
+</div> 
+ 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
+ 
+     <?php echo form_input('nombre',$genero['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre')) ?>
 
-
-  $eys_arrctl=array("name"=>'nombre','value'=>$genero['nombre'],"disabled"=>"disabled",'placeholder'=>'Inombre','style'=>'width:500px;');
- echo form_input($eys_arrctl) ?></td>
-  </tr>
-
-  
-
-
-   
-   
-
-</table>
+	</div> 
+</div> 
 <?php echo form_close(); ?>
 
 

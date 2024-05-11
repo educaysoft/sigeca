@@ -10,19 +10,19 @@ class Canton extends CI_Controller{
 public function index(){
   	$data['canton']=$this->canton_model->canton(1)->row_array();
  
-  	$data['title']="Tipos de documentos";
-	//$this->load->view('template/page_header');		
+  	$data['title']="Cantón";
+	$this->load->view('template/page_header');		
   	$this->load->view('canton_record',$data);
-	//$this->load->view('template/page_footer');
+	$this->load->view('template/page_footer');
 }
 
 
 public function add()
 {
-		$data['title']="Nueva Tipo de documento";
-	 	//$this->load->view('template/page_header');		
+		$data['title']="Nuevo tipo de documento";
+	 	$this->load->view('template/page_header');		
 	 	$this->load->view('canton_form',$data);
-	 	//$this->load->view('template/page_footer');
+	 	$this->load->view('template/page_footer');
 
 
 }
@@ -45,9 +45,9 @@ public function add()
 	{
 	 	$data['canton'] = $this->canton_model->canton($this->uri->segment(3))->row_array();
  	 	$data['title'] = "Actualizar canton";
- 	 	//$this->load->view('template/page_header');		
+ 	 	$this->load->view('template/page_header');		
  	 	$this->load->view('canton_edit',$data);
-	 	//$this->load->view('template/page_footer');
+	 	$this->load->view('template/page_footer');
  
 	}
 
@@ -80,9 +80,9 @@ public function listar()
 	
   $data['canton_list'] = $this->canton_model->lista_cantonsA()->result();
   $data['title']="Tipo documento";
-	//$this->load->view('template/page_header');		
+	$this->load->view('template/page_header');		
   $this->load->view('canton_list',$data);
-	//$this->load->view('template/page_footer');
+	$this->load->view('template/page_footer');
 }
 
 

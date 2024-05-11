@@ -3,7 +3,6 @@
 <h2> <?php echo $title; ?></h2>
 <hr />
 <table>
- 
    <tr>
      <td>Id sexo</td>
      <td><?php echo form_textarea('idsexo',$sexo['idsexo'],array('placeholder'=>'Idsexo')) ?></td>

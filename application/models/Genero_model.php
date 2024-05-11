@@ -35,6 +35,23 @@ class Genero_model extends CI_model {
 		return $result;
  	}
 
+	public function quitar($id)
+	 {
+		 $this->db->select('*');
+		 $this->db->from('genero0');
+		  $this->db->where('idgenero',$id);
+		 $this->db->limit(1);
+		 $query = $this->db->get();
+		 if ($query->num_rows() != 0) {
+				$this->db->where('idgenero',$id);
+			 $this->db->update('genero', array('eliminado'=>1));
+			 $result=true;
+		 }else{
+			 $result=false;
+		 }
+		 return $result;
+	  }
+
 
 	function elprimero()
 	{
