@@ -10,7 +10,7 @@ class Tipoevento extends CI_Controller{
 public function index() {
 	if(isset($this->session->userdata['logged_in'])){
 		$data['tipoevento']=$this->tipoevento_model->elultimo();
-		$data['title']="Lista de tipoeventoes";
+		$data['title']="Lista de tipoeventos";
 		$this->load->view('template/page_header');
 		$this->load->view('tipoevento_record',$data);
 		$this->load->view('template/page_footer');
