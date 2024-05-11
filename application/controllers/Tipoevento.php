@@ -130,7 +130,7 @@ function tipoevento_data() {
 
 
 
-	public function actual() {
+	/*public function actual() {
 	$data['tipoevento'] = $this->tipoevento_model->tipoevento($this->uri->segment(3))->row_array();
   	if(!empty($data))
   	{
@@ -143,7 +143,7 @@ function tipoevento_data() {
     		$this->load->view('registro_vacio');
     		$this->load->view('template/page_footer');
   	}
-}
+}*/
 
  public function elprimero() {
         if (isset($this->session->userdata['logged_in'])) {
