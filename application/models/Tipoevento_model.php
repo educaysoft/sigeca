@@ -6,6 +6,12 @@ class Tipoevento_model extends CI_model {
 		 return $tipoevento;
 	}
 
+	function lista_tipoevento(){
+		$tipoevento= $this->db->get('tipoevento');
+		return $tipoevento;
+   }
+
+
  	function tipoevento( $id){
  		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
  		return $tipoevento;
@@ -13,7 +19,26 @@ class Tipoevento_model extends CI_model {
 
  	function save($array)
  	{
-		$this->db->insert("tipoevento", $array);
+		$condition = "idtipoevento =" . "'" . $array['idipoevento'] . "'";
+		$this->db->select('*');
+		$this->db->from('tipoevento');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+		   $this->db->insert("sexo", $array);
+		   if( $this->db->affected_rows()>0){
+			    return true;
+		   }else{
+			    return false;
+		   }
+	   }else{
+		    return false;
+		   }
+
+
+
+
  	}
 
  	function update($id,$array_item)
@@ -28,12 +53,32 @@ class Tipoevento_model extends CI_model {
 	{
  		$this->db->where('idtipoevento',$id);
 		$this->db->delete('tipoevento');
-    		if($this->db->affected_rows()==1)
+    		if($this->db->affected_rows()==1){
 			$result=true;
-		else
+	} else {
 			$result=false;
+	}
 		return $result;
  	}
+
+	 function quitar($id)
+	 {
+ 
+		 $this->db->select('*');
+		 $this->db->from('tipoevento0');
+		  $this->db->where('idtipoevento',$id);
+		 $this->db->limit(1);
+		 $query = $this->db->get();
+		 if ($query->num_rows() != 0) {
+				$this->db->where('idtipoevento',$id);
+			 $this->db->update('tipoevento', array('eliminado'=>1));
+			 $result=true;
+		 }else{
+			 $result=false;
+		 }
+		 return $result;
+	  }
+ 
 
 
 	function elprimero()
