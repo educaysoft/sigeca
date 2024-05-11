@@ -59,34 +59,19 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </div>
 </div>
 
-<div class="modal fade" id="Modal_pdf" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height: 800px;">
-
-
-
-
-
- <div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-</div>
-
- </div>
-
-
-
 <script type="text/javascript">
+    $(document).ready(function(){
+        var mytabla = $('#mydatac').DataTable({
+            "ajax": {
+                url: '<?php echo site_url('tipoevento/tipoeventoo_data')?>',
+                type: 'GET'
+            }
+        });
 
-$(document).ready(function(){
-
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('tipoevento/tipoevento_data')?>', type: 'GET'},});
-
-});
-
-$('#show_data').on('click','.item_ver',function(){
-var id= $(this).data('idtipoevento');
-var retorno= $(this).data('retorno');
-window.location.href = retorno+'/'+id;
-});
-
-
+        $('#show_data').on('click','.item_ver', function(){
+            var id = $(this).data('idtipoeventoo');
+            var retorno = $(this).data('retorno');
+            window.location.href = retorno + '/' + id;
+        });
+    });
 </script>
-

@@ -1,22 +1,29 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("tipoevento/save") ?>
-<?php echo form_hidden("idtipoevento")  ?>
-<table>
+<?php echo form_open("tipoevento/save", array('id'=>'eys-form')); ?>
+<?php echo form_hidden("idtipoevento");  ?>
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id tipoevento:</label>
+	<div class="col-md-10">
+<?php echo form_input("idtipoevento","", array("placeholder"=>"Id tipoevento"));  ?>
+	</div> 
+</div>
 
 
-<tr>
-<td> Nombre </td>
-<td><?php echo form_input("nombre","", array("placeholder"=>"Nombre de tipoevento"))  ?></td>
-</tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
+<?php echo form_input("nombre","", array("placeholder"=>"Descripcion de tipoevento"));  ?>
+	</div> 
+</div> 
 
-<tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("tipoevento","Atras") ?> </td>
-</tr>
+<div id="eys-nav-i">
 
-</table>
-<?php echo form_close();?>
-
+	<ul>
+   	 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
+    		<li> <?php echo anchor('persona', 'Cancelar'); ?></li>
+	</ul>
+</div> <?php echo form_close();?>

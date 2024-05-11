@@ -19,7 +19,7 @@ class Tipoevento_model extends CI_model {
 
  	function save($array)
  	{
-		$condition = "idtipoevento =" . "'" . $array['idipoevento'] . "'";
+		$condition = "idtipoevento =" . "'" . $array['idtipoevento'] . "'";
 		$this->db->select('*');
 		$this->db->from('tipoevento');
 		$this->db->where($condition);
