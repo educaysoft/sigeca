@@ -26,7 +26,7 @@ class Tipoevento_model extends CI_model {
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() == 0) {
-		   $this->db->insert("sexo", $array);
+		   $this->db->insert("tipoevento", $array);
 		   if( $this->db->affected_rows()>0){
 			    return true;
 		   }else{

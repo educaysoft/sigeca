@@ -23,7 +23,7 @@
     <label class="col-md-2 col-form-label"> Id:</label>
 	<div class="col-md-10">
 
-     <?php echo form_input('idtipoevento',$tipoevento['idtipoeventoo'],array("disabled"=>"disabled",'placeholder'=>'Idtipoevento')) ?>
+     <?php echo form_input('idtipoevento',$tipoevento['idtipoevento'],array("disabled"=>"disabled",'placeholder'=>'Idtipoevento')) ?>
  
 	</div> 
 </div> 
