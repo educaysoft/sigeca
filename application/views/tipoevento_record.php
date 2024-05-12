@@ -1,6 +1,7 @@
+$title = "tipoevento";
 <div id="eys-nav-i">
 
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3> 
 <?php echo form_open('tipoevento/save_edit') ?>
     <ul>
         <li> <?php echo anchor('tipoevento/elprimero/', 'primero'); ?></li>
@@ -17,7 +18,7 @@
 <br>
 
 
-<?php echo form_hidden('idtipoevento',$tipoevento['idtipoeveto']) ?>
+<?php echo form_hidden('idtipoevento',$tipoevento['idtipoevento']) ?>
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Id:</label>
