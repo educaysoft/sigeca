@@ -50,9 +50,6 @@ if(isset($modoevaluacion))
 
 
 
-
-
-
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Nombre:</label>
 	<div class="col-md-10">
@@ -75,6 +72,3 @@ if(isset($modoevaluacion))
 
 
 <?php echo form_close(); ?>
-
-
-
