@@ -48,11 +48,6 @@ if(isset($modoevaluacion))
 </div> 
 
 
-
-
-
-
-
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Nombre:</label>
 	<div class="col-md-10">
@@ -63,6 +58,7 @@ if(isset($modoevaluacion))
 	</div> 
 </div> 
    
+
 <?php if(isset($modoevaluacion['ponderacion'])): ?>
     <div class="form-group row">
         <label class="col-md-2 col-form-label"> Ponderación:</label>
