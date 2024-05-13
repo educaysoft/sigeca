@@ -98,28 +98,30 @@ public function listar()
 
 function modoevaluacion_data()
 {
-		$draw= intval($this->input->get("draw"));
-		$draw= intval($this->input->get("start"));
-		$draw= intval($this->input->get("length"));
+    $draw = intval($this->input->get("draw"));
+    $start = intval($this->input->get("start"));
+    $length = intval($this->input->get("length"));
 
-
-	 	$data0 = $this->modoevaluacion_model->lista_modoevaluacions();
-		$data=array();
-		foreach($data0->result() as $r){
-			$data[]=array($r->idmodoevaluacion,$r->numero,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('modoevaluacion/actual').'"     data-idmodoevaluacion="'.$r->idmodoevaluacion.'">Ver</a>');
-		}	
-		$output=array( "draw"=>$draw,
-			"recordsTotal"=> $data0->num_rows(),
-			"recordsFiltered"=> $data0->num_rows(),
-			"data"=>$data
-		);
-		echo json_encode($output);
-		exit();
-	
-			
-
+    $data0 = $this->modoevaluacion_model->lista_modoevaluacions();
+    $data = array();
+    foreach ($data0->result() as $r) {
+        $data[] = array(
+            $r->idmodoevaluacion,
+            $r->numero,
+            $r->nombre,
+            '<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="' . site_url('modoevaluacion/actual') . '" data-idmodoevaluacion="' . $r->idmodoevaluacion . '">Ver</a>'
+        );
+    }
+    $output = array(
+        "draw" => $draw,
+        "recordsTotal" => $data0->num_rows(),
+        "recordsFiltered" => $data0->num_rows(),
+        "data" => $data
+    );
+    echo json_encode($output);
+    exit();
 }
+
 
 
 
