@@ -85,6 +85,19 @@ public function edit()
  	}
 
 
+   public function desactivar()
+   {
+       // Obtener el id del registro a marcar como inactivo
+       $id = $this->uri->segment(3);
+   
+       // Llamar al método soft_delete del modelo
+       $data['success'] = $this->modoevaluacion_model->desactivar($id);
+   
+       // Redirigir a la página principal
+       redirect('modoevaluacion');
+   }
+   
+
 public function listar()
 {
 	
