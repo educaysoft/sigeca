@@ -56,7 +56,6 @@
         <?php if (isset($modoevaluacion['nombre'])) : ?>
             <?php echo form_input('nombre', $modoevaluacion['nombre'], array('placeholder' => 'Nombre del modoevaluacion')); ?>
         <?php endif; ?>
-
     </div>
 </div>
 
