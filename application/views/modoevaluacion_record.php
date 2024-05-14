@@ -33,9 +33,8 @@
 <br>
 
 
-<?php if (isset($modoevaluacion['idmodoevaluacion'])) : ?>
-    <?php echo form_hidden('idmodoevaluacion', $modoevaluacion['idmodoevaluacion']); ?>
-<?php endif; ?>
+<?php echo form_open('modoevaluacion/save_edit') ?>
+<?php echo form_hidden('idmodoevaluacion',$modoevaluacion['idmodoevaluacion']) ?>
 
 
 
