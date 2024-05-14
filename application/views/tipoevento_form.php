@@ -24,6 +24,7 @@
 
 	<ul>
    	 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
+			<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Cancelar</a></li>
     		<li> <?php echo anchor('tipoevento', 'Atras'); ?></li>
 	</ul>
 </table>
