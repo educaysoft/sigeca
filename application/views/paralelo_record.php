@@ -27,38 +27,26 @@ if(isset($paralelo))
 <br>
 <br>
 
-
 <?php echo form_open('paralelo/save_edit') ?>
-<?php echo form_hidden('idparalelo',$paralelo['idparalelo']) ?>
+<?php if(isset($paralelo) && is_array($paralelo)): ?>
+    <?php echo form_hidden('idparalelo',$paralelo['idparalelo']) ?>
 
+    <div class="form-group row">
+        <label class="col-md-2 col-form-label"> Id:</label>
+        <div class="col-md-10">
+            <?php echo form_input('idparalelo',$paralelo['idparalelo'],array("disabled"=>"disabled",'placeholder'=>'Idparalelos')); ?>
+        </div> 
+    </div> 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id:</label>
-	<div class="col-md-10">
-     <?php
-	echo form_input('idparalelo',$paralelo['idparalelo'],array("disabled"=>"disabled",'placeholder'=>'Idparalelos'));
-	?>
-	</div> 
-</div> 
+    <div class="form-group row">
+        <label class="col-md-2 col-form-label"> Nombre:</label>
+        <div class="col-md-10">
+            <?php echo form_input('nombre',$paralelo['nombre'],array('placeholder'=>'Nombre del paralelo')); ?>
+        </div> 
+    </div> 
+<?php else: ?>
+    <!-- Aquí puedes manejar el caso en el que $paralelo no esté definido -->
+    <p>No se encontraron datos de paralelo.</p>
+<?php endif; ?>
 
-
-
-
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre:</label>
-	<div class="col-md-10">
-     <?php
-       echo form_input('nombre',$paralelo['nombre'],array('placeholder'=>'Nombre del paralelo')); 
-
-	?>
-	</div> 
-</div> 
-   
-   
 <?php echo form_close(); ?>
-
-
-
