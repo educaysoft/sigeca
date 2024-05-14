@@ -211,11 +211,11 @@ public function anterior(){
 	$this->load->view('template/page_footer');
 }
 
-	// Método para mostrar el  registro previo del actual en  sexo
+	// Método para mostrar el  registro previo del actual en evento
     public function anterior(){
   	    if(isset($this->session->userdata['logged_in'])){
             $data['tipoevento'] = $this->tipoevento_model->anterior($this->uri->segment(3))->row_array();
-            $data['title']="Tipo documento";
+            $data['title']="TIpo Evento";
             $this->load->view('template/page_header');		
             $this->load->view('tipoevento_record',$data);
             $this->load->view('template/page_footer');
@@ -234,7 +234,7 @@ public function get_tipoevento() {
     if($this->input->post('idtipoevento')) {
         $this->db->select('*');
         $this->db->where(array('idtipoevento' => $this->input->post('idtipoevento')));
-        $query = $this->db->get('documento');
+        $query = $this->db->get('evento');
 	$data=$query->result();
 	echo json_encode($data);
 	}
