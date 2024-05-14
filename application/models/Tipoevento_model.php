@@ -61,8 +61,8 @@ class Tipoevento_model extends CI_model {
 		return $result;
  	}
 
-	 function quitar($id)
-	 {
+	 //function quitar($id)
+	/* {
 		 $this->db->select('*');
 		 $this->db->from('tipoevento');
 		  $this->db->where('idtipoevento',$id);
@@ -76,7 +76,7 @@ class Tipoevento_model extends CI_model {
 			 $result=false;
 		 }
 		 return $result;
-	  }
+	  }*/
  
 
 
