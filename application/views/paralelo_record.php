@@ -31,15 +31,19 @@ if(isset($paralelo))
 <?php echo form_open('paralelo/save_edit') ?>
 <?php echo form_hidden('idparalelo',$paralelo['idparalelo']) ?>
 
-
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Id:</label>
 	<div class="col-md-10">
-     <?php
-	echo form_input('idparalelo',$paralelo['idparalelo'],array("disabled"=>"disabled",'placeholder'=>'Idparalelos'));
+    <?php
+    if(isset($paralelo['idparalelo'])) {
+	    echo form_input('idparalelo',$paralelo['idparalelo'],array("disabled"=>"disabled",'placeholder'=>'Idparalelos'));
+    } else {
+        echo form_input('idparalelo','',array("disabled"=>"disabled",'placeholder'=>'Idparalelos'));
+    }
 	?>
 	</div> 
-</div> 
+</div>
+
 
 
 
