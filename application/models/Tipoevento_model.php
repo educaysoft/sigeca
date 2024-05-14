@@ -65,7 +65,7 @@ class Tipoevento_model extends CI_model {
 	 {
  
 		 $this->db->select('*');
-		 $this->db->from('tipoevento0');
+		 $this->db->from('tipoevento');
 		  $this->db->where('idtipoevento',$id);
 		 $this->db->limit(1);
 		 $query = $this->db->get();
