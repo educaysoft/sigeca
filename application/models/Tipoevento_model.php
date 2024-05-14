@@ -73,10 +73,7 @@ class Tipoevento_model extends CI_model {
 				$this->db->where('idtipoevento',$id);
 			 $this->db->update('tipoevento', array('eliminado'=>1));
 			 $result=true;
-		 }else{
-			 $result=false;
 		 }
-		 return $result;
 	  }
  
 
