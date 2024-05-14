@@ -25,7 +25,7 @@
 </div>
 
 <div class="form-group row">
-  <label class="col-md-2 col-form-label">Nombre:</label>
+  <label class="col-md-2 col-form-label"> Nombre:</label>
   <div class="col-md-10">
     <?php echo form_input('nombre', $codigopostal['nombre'], array("disabled" => "disabled", 'placeholder' => 'nombre')) ?>
   </div>
