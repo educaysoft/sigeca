@@ -203,7 +203,7 @@ function tipoevento_data() {
 
 
 public function anterior(){
- 	$data['tipoevento_list']=$this->tipoevento_model->lista_tipoevento()->result();
+ 	//$data['tipoevento_list']=$this->tipoevento_model->lista_tipoevento()->result();
 	$data['tipoevento'] = $this->tipoevento_model->anterior($this->uri->segment(3))->row_array();
   	$data['title']="tipoevento";
 	$this->load->view('template/page_header');		

@@ -63,7 +63,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     $(document).ready(function(){
         var mytabla = $('#mydatac').DataTable({
             "ajax": {
-                url: '<?php echo site_url('tipoevento/tipoeventoo_data')?>',
+                url: '<?php echo site_url('tipoevento/tipoevento_data')?>',
                 type: 'GET'
             }
         });
