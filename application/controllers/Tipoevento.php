@@ -24,7 +24,7 @@ public function index() {
 
 public function add()
 {
-		$data['title']="Nueva tipoevento";
+		$data['title']="Nuevo Evento";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('tipoevento_form',$data);
 	 	$this->load->view('template/page_footer');
@@ -52,7 +52,7 @@ public function  save() {
 public function edit()
 {
 	 	$data['tipoevento'] = $this->tipoevento_model->tipoevento($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar tipoevento";
+ 	 	$data['title'] = "Actualizar Evento";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('tipoevento_edit',$data);
 	 	$this->load->view('template/page_footer');
@@ -95,7 +95,7 @@ public function edit()
 
 	// Método para listar todos los tipos de eventos
     public function listar() {
-        $data['tipoevento_list'] = $this->tipoevento_model->lista_tipoeventos()->result();
+        $data['tipoevento_list'] = $this->tipoevento_model->lista_tipoevento()->result();
         $data['title'] = "Tipo documento";
         $this->load->view('template/page_header');
         $this->load->view('tipoevento_list', $data);
@@ -109,7 +109,7 @@ function tipoevento_data() {
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
-	 	$data0 = $this->tipoevento_model->lista_tipoeventos();
+	 	$data0 = $this->tipoevento_model->lista_tipoevento();
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idtipoevento,$r->nombre,
@@ -200,16 +200,6 @@ function tipoevento_data() {
             $this->load->view('template/page_footer.php');
         }
     }
-
-
-public function anterior(){
- 	//$data['tipoevento_list']=$this->tipoevento_model->lista_tipoevento()->result();
-	$data['tipoevento'] = $this->tipoevento_model->anterior($this->uri->segment(3))->row_array();
-  	$data['title']="tipoevento";
-	$this->load->view('template/page_header');		
-  	$this->load->view('tipoevento_record',$data);
-	$this->load->view('template/page_footer');
-}
 
 	// Método para mostrar el  registro previo del actual en evento
     public function anterior(){
