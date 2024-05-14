@@ -205,9 +205,9 @@ function tipoevento_data() {
 public function anterior(){
  // $data['tipoevento_list']=$this->tipoevento_model->lista_tipoevento()->result();
 	$data['tipoevento'] = $this->tipoevento_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Tipoevento";
+  	$data['title']="tipoevento";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipoevento_record',$data);
+  	$this->load->view('tipoevento_record',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -215,7 +215,7 @@ public function anterior(){
     public function anterior(){
   	    if(isset($this->session->userdata['logged_in'])){
             $data['tipoevento'] = $this->tipoevento_model->anterior($this->uri->segment(3))->row_array();
-            $data['title']="Tipoevento";
+            $data['title']="tipoevento";
             $this->load->view('template/page_header');		
             $this->load->view('tipoevento_record',$data);
             $this->load->view('template/page_footer');
