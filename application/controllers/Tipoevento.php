@@ -91,8 +91,6 @@ public function edit()
 		}
  	}
 
-
-
 	// Método para listar todos los tipos de eventos
     public function listar() {
         $data['tipoevento_list'] = $this->tipoevento_model->lista_tipoevento()->result();
@@ -101,7 +99,6 @@ public function edit()
         $this->load->view('tipoevento_list', $data);
         $this->load->view('template/page_footer');
     }
-
 
 
 function tipoevento_data() {
