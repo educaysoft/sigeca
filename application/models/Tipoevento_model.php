@@ -64,13 +64,13 @@ class Tipoevento_model extends CI_model {
 	 function quitar($id)
 	 {
 		 $this->db->select('*');
-		 $this->db->from('idtipoevento');
-		  $this->db->where('tipoevento',$id);
+		 $this->db->from('tipoevento');
+		  $this->db->where('idtipoevento',$id);
 		 $this->db->limit(1);
 		 $query = $this->db->get();
 		 if ($query->num_rows() != 0) {
 			$this->db->where('idtipoevento',$id);
-			 $this->db->update('tipoevento', array('tipoevento'=>1));
+			 $this->db->update('tipoevento', array('eliminado'=>1));
 			 $result=true;
 		 }else{
 			 $result=false;
