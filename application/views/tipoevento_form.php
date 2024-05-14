@@ -3,7 +3,7 @@
 <?php echo form_open("tipoevento/save", array('id'=>'eys-form')); ?>
 <?php echo form_hidden("idtipoevento");  ?>
 
-
+<table>
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Id tipoevento:</label>
@@ -26,4 +26,5 @@
    	 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
     		<li> <?php echo anchor('tipoevento', 'Atras'); ?></li>
 	</ul>
+</table>
 </div> <?php echo form_close();?>

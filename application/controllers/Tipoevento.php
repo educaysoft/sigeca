@@ -25,9 +25,9 @@ public function index() {
 public function add()
 {
 		$data['title']="Nuevo Evento";
-	 	$this->load->view('template/page_header');		
+	 	//$this->load->view('template/page_header');		
 	 	$this->load->view('tipoevento_form',$data);
-	 	$this->load->view('template/page_footer');
+	 	//$this->load->view('template/page_footer');
 }
 
 
