@@ -123,8 +123,6 @@ function modoevaluacion_data()
 }
 
 
-
-
 public function actual()
 {
 	$data['modoevaluacion'] = $this->modoevaluacion_model->modoevaluacion($this->uri->segment(3))->row_array();
@@ -140,14 +138,6 @@ public function actual()
     $this->load->view('template/page_footer');
   }
  }
-
-
-
-
-
-
-
-
 
 
 

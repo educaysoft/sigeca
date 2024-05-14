@@ -8,17 +8,17 @@ class Tipoevento extends CI_Controller{
 }
 
 public function index() {
-	if(isset($this->session->userdata['logged_in'])){
+	//if (isset($this->session->userdata['logged_in'])) {
 		$data['tipoevento']=$this->tipoevento_model->elultimo();
 		$data['title']="Lista de Eventos";
 		$this->load->view('template/page_header');
 		$this->load->view('tipoevento_record',$data);
 		$this->load->view('template/page_footer');
-	} else {
-	$this->load->view('template/page_header.php');
-	$this->load->view('login_form');
-	 $this->load->view('template/page_footer.php');
-	}
+	/*} else {
+            $this->load->view('template/page_header.php');
+            $this->load->view('login_form');
+            $this->load->view('template/page_footer.php');
+        }*/
 }
 
 
@@ -75,7 +75,7 @@ public function edit()
  	{
  		$data=$this->tipoevento_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('tipoevento/elprimero');
+	 	redirect('tipoevento/elultimo');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -146,7 +146,7 @@ function tipoevento_data() {
 }*/
 
  public function elprimero() {
-        if (isset($this->session->userdata['logged_in'])) {
+        //if (isset($this->session->userdata['logged_in'])) {
             $data['tipoevento'] = $this->tipoevento_model->elprimero();
             if (!empty($data)) {
                 $data['title'] = "Tipo documento";
@@ -158,16 +158,16 @@ function tipoevento_data() {
                 $this->load->view('registro_vacio');
                 $this->load->view('template/page_footer');
             }
-        } else {
+        /*} else {
             $this->load->view('template/page_header.php');
             $this->load->view('login_form');
             $this->load->view('template/page_footer.php');
-        }
+        }*/
     }
 
 	// Método para mostrar el último registro de tipo de evento
     public function elultimo() {
-        if (isset($this->session->userdata['logged_in'])) {
+        //if (isset($this->session->userdata['logged_in'])) {
             $data['tipoevento'] = $this->tipoevento_model->elultimo();
             if (!empty($data)) {
                 $data['title'] = "Tipo documento";
@@ -179,41 +179,41 @@ function tipoevento_data() {
                 $this->load->view('registro_vacio');
                 $this->load->view('template/page_footer');
             }
-        } else {
+        /*} else {
             $this->load->view('template/page_header.php');
             $this->load->view('login_form');
             $this->load->view('template/page_footer.php');
-        }
+        }*/
     }
 
 // Método para mostrar el siguiente registro de tipo evento
     public function siguiente() {
-        if (isset($this->session->userdata['logged_in'])) {
+        //if (isset($this->session->userdata['logged_in'])) {
             $data['tipoevento'] = $this->tipoevento_model->siguiente($this->uri->segment(3))->row_array();
             $data['title'] = "Tipo documento";
             $this->load->view('template/page_header');
             $this->load->view('tipoevento_record', $data);
             $this->load->view('template/page_footer');
-        } else {
+        /*} else {
             $this->load->view('template/page_header.php');
             $this->load->view('login_form');
             $this->load->view('template/page_footer.php');
-        }
+        }*/
     }
 
 	// Método para mostrar el  registro previo del actual en evento
     public function anterior(){
-  	    if(isset($this->session->userdata['logged_in'])){
+  	    //if(isset($this->session->userdata['logged_in'])){
             $data['tipoevento'] = $this->tipoevento_model->anterior($this->uri->segment(3))->row_array();
             $data['title']="tipoevento";
             $this->load->view('template/page_header');		
             $this->load->view('tipoevento_record',$data);
             $this->load->view('template/page_footer');
-        } else{
+        /*} else{
 	 	    $this->load->view('template/page_header.php');
 		    $this->load->view('login_form');
 	 	    $this->load->view('template/page_footer.php');
-        } 
+        }*/
     }
 
 
