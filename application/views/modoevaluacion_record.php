@@ -13,18 +13,18 @@
             <li class="list-inline-item"> <?php echo anchor('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion'], 'Anterior'); ?></li>
             <li class="list-inline-item"> <?php echo anchor('modoevaluacion/elultimo/', 'Último'); ?></li>
             <li class="list-inline-item"> <?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
-            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion'], 'Edit'); ?></li>
-            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion'], 'Delete'); ?></li>
+            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion'], 'Editar'); ?></li>
+            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion'], 'Quitar'); ?></li>
             <li class="list-inline-item" style="border-left: 1px solid #ccc; padding-left: 10px;"> <?php echo anchor('modoevaluacion/listar/', 'Listar'); ?></li>
         <?php endif; ?>
     </ul>
 </div>
 
-<?php echo form_open('modoevaluacion/save_edit') ?>
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Id:</label>
     <div class="col-md-10">
+        <?php echo form_open('modoevaluacion/save_edit') ?>
         <?php if (isset($modoevaluacion['idmodoevaluacion'])) : ?>
             <?php echo form_hidden('idmodoevaluacion', $modoevaluacion['idmodoevaluacion']); ?>
         <?php endif; ?>
