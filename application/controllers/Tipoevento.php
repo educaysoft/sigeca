@@ -75,7 +75,7 @@ public function edit()
  	{
  		$data=$this->tipoevento_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('tipoevento/elprimero');
+	 	redirect('tipoevento/elultimo');
 	//	$db['default']['db_debug']=FALSE
  	}
 
