@@ -69,7 +69,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
         });
 
         $('#show_data').on('click','.item_ver', function(){
-            var id = $(this).data('idtipoeventoo');
+            var id = $(this).data('idtipoevento');
             var retorno = $(this).data('retorno');
             window.location.href = retorno + '/' + id;
         });
