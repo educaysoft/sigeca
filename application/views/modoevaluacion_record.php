@@ -4,18 +4,18 @@
 <!--Autor: Stalin Francis -->
 <!--Fecha: Ultima evaluación: Sabado 4 febrero 2023 -->
 
-<div id="eys-nav-i" class="mt-4">
+<div id="eys-nav-i" class="mt-4 p-2">
     <h3 class="mt-3 pt-3"><?php echo $title; ?></h3>
-    <ul class="list-group">
+    <ul class="list-inline d-inline">
         <?php if (isset($modoevaluacion) && isset($modoevaluacion['idmodoevaluacion'])) : ?>
-            <li class="list-group-item"> <?php echo anchor('modoevaluacion/elprimero/', 'Primero'); ?></li>
-            <li class="list-group-item"> <?php echo anchor('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion'], 'Siguiente'); ?></li>
-            <li class="list-group-item"> <?php echo anchor('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion'], 'Anterior'); ?></li>
-            <li class="list-group-item border-right-0"> <?php echo anchor('modoevaluacion/elultimo/', 'Último'); ?></li>
-            <li class="list-group-item"> <?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
-            <li class="list-group-item"> <?php echo anchor('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion'], 'Edit'); ?></li>
-            <li class="list-group-item border-right-0"> <?php echo anchor('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion'], 'Delete'); ?></li>
-            <li class="list-group-item"> <?php echo anchor('modoevaluacion/listar/', 'Listar'); ?></li>
+            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/elprimero/', 'Primero'); ?></li>
+            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion'], 'Siguiente'); ?></li>
+            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion'], 'Anterior'); ?></li>
+            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/elultimo/', 'Último'); ?></li>
+            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
+            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion'], 'Edit'); ?></li>
+            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion'], 'Delete'); ?></li>
+            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/listar/', 'Listar'); ?></li>
         <?php endif; ?>
     </ul>
 </div>
