@@ -8,17 +8,17 @@ class Tipoevento extends CI_Controller{
 }
 
 public function index() {
-	//if(isset($this->session->userdata['logged_in'])){
+	if(isset($this->session->userdata['logged_in'])){
 		$data['tipoevento']=$this->tipoevento_model->elultimo();
 		$data['title']="Lista de Eventos";
 		$this->load->view('template/page_header');
 		$this->load->view('tipoevento_record',$data);
 		$this->load->view('template/page_footer');
-	/*} else {
+	} else {
 	$this->load->view('template/page_header.php');
 	$this->load->view('login_form');
 	 $this->load->view('template/page_footer.php');
-	}*/
+	}
 }
 
 
