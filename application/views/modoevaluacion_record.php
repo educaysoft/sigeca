@@ -4,25 +4,21 @@
 <!--Autor: Stalin Francis -->
 <!--Fecha: Ultima evaluación: Sabado 4 febrero 2023 -->
 
-<div id="eys-nav-i">
-    <h3 class="mt-3 pt-3"> <?php echo $title; ?></h3>
-    <ul>
-
-    <?php if (isset($modoevaluacion) && isset($modoevaluacion['idmodoevaluacion'])) : ?>
-            <li> <?php echo anchor('modoevaluacion/elprimero/', 'Primero'); ?></li>
-            <li> <?php echo anchor('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion'], 'Siguiente'); ?></li>
-            <li> <?php echo anchor('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion'], 'Anterior'); ?></li>
-            <li style="border-right:1px solid green"><?php echo anchor('modoevaluacion/elultimo/', 'Último'); ?></li>
-            <li> <?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
-            <li> <?php echo anchor('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion'], 'Edit'); ?></li>
-            <li style="border-right:1px solid green"> <?php echo anchor('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion'], 'Delete'); ?></li>
-            <li> <?php echo anchor('modoevaluacion/listar/', 'Listar'); ?></li>
+<div id="eys-nav-i" class="mt-4">
+    <h3 class="mt-3 pt-3"><?php echo $title; ?></h3>
+    <ul class="list-group">
+        <?php if (isset($modoevaluacion) && isset($modoevaluacion['idmodoevaluacion'])) : ?>
+            <li class="list-group-item"> <?php echo anchor('modoevaluacion/elprimero/', 'Primero'); ?></li>
+            <li class="list-group-item"> <?php echo anchor('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion'], 'Siguiente'); ?></li>
+            <li class="list-group-item"> <?php echo anchor('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion'], 'Anterior'); ?></li>
+            <li class="list-group-item border-right-0"> <?php echo anchor('modoevaluacion/elultimo/', 'Último'); ?></li>
+            <li class="list-group-item"> <?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
+            <li class="list-group-item"> <?php echo anchor('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion'], 'Edit'); ?></li>
+            <li class="list-group-item border-right-0"> <?php echo anchor('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion'], 'Delete'); ?></li>
+            <li class="list-group-item"> <?php echo anchor('modoevaluacion/listar/', 'Listar'); ?></li>
         <?php endif; ?>
-
     </ul>
 </div>
-<br>
-<br>
 
 <?php echo form_open('modoevaluacion/save_edit') ?>
 <?php if (isset($modoevaluacion['idmodoevaluacion'])) : ?>
