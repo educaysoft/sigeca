@@ -85,13 +85,13 @@ public function edit()
  	}
 
 
-   public function inhabilitar()
+   public function inhabilitar_datos()
    {
        // Obtener el id del registro a marcar como inactivo
        $id = $this->uri->segment(3);
    
        // Llamar al método soft_delete del modelo
-       $data['success'] = $this->modoevaluacion_model->inhabilitar($id);
+       $data['success'] = $this->modoevaluacion_model->inhabilitar_datos($id);
    
        // Redirigir a la página principal
        redirect('modoevaluacion');
