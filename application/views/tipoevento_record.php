@@ -1,4 +1,3 @@
-$title = "tipoevento";
 <div id="eys-nav-i">
 
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3> 
