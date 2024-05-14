@@ -16,7 +16,7 @@
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Nombre:</label>
 	<div class="col-md-10">
-<?php echo form_input("nombre","", array("placeholder"=>"Descripcion de tipoevento"));  ?>
+<?php echo form_input("nombre","", array("placeholder"=>"Descripcion del Evento"));  ?>
 	</div> 
 </div> 
 
@@ -24,6 +24,6 @@
 
 	<ul>
    	 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
-    		<li> <?php echo anchor('persona', 'Atras'); ?></li>
+    		<li> <?php echo anchor('tipoevento', 'Atras'); ?></li>
 	</ul>
 </div> <?php echo form_close();?>
