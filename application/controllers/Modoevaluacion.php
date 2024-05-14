@@ -85,19 +85,6 @@ public function edit()
  	}
 
 
-   public function inhabilitar_datos()
-   {
-       // Obtener el id del registro a marcar como inactivo
-       $id = $this->uri->segment(3);
-   
-       // Llamar al método soft_delete del modelo
-       $data['success'] = $this->modoevaluacion_model->inhabilitar_datos($id);
-   
-       // Redirigir a la página principal
-       redirect('modoevaluacion');
-   }
-   
-
 public function listar()
 {
 	
@@ -106,7 +93,6 @@ public function listar()
   $this->load->view('modoevaluacion_list',$data);
 	$this->load->view('template/page_footer');
 }
-
 
 
 function modoevaluacion_data()
