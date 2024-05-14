@@ -5,28 +5,29 @@
 <!--Fecha: Ultima evaluación: Sabado 4 febrero 2023 -->
 
 <div id="eys-nav-i">
-    <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-    <ul>
-        <?php
-        if (isset($modoevaluacion)) {
-        ?>
-            <li> <?php echo anchor('modoevaluacion/elprimero/', 'primero'); ?></li>
-            <li> <?php echo anchor('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion'], 'siguiente'); ?></li>
-            <li> <?php echo anchor('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion'], 'anterior'); ?></li>
-            <li style="border-right:1px solid green"><?php echo anchor('modoevaluacion/elultimo/', 'Último'); ?></li>
-            <li> <?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
-            <li> <?php echo anchor('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion'], 'Edit'); ?></li>
-            <li style="border-right:1px solid green"> <?php echo anchor('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion'], 'Delete'); ?></li>
-            <li> <?php echo anchor('modoevaluacion/listar/', 'Listar'); ?></li>
+	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+	<ul>
+<?php
+if(isset($modoevaluacion))
+{
+?>
+        <li> <?php echo anchor('modoevaluacion/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('modoevaluacion/siguiente/'.$modoevaluacion['idmodoevaluacion'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('modoevaluacion/anterior/'.$modoevaluacion['idmodoevaluacion'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('modoevaluacion/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('modoevaluacion/edit/'.$modoevaluacion['idmodoevaluacion'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('modoevaluacion/delete/'.$modoevaluacion['idmodoevaluacion'],'Delete'); ?></li>
+        <li> <?php echo anchor('modoevaluacion/listar/','Listar'); ?></li>
 
-        <?php
-        } else {
-        ?>
+<?php 
+}else{
+?>
 
-            <li> <?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
-        <?php
-        }
-        ?>
+        <li> <?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
+<?php
+}
+?>
     </ul>
 </div>
 <br>
@@ -37,36 +38,35 @@
 <?php echo form_hidden('idmodoevaluacion',$modoevaluacion['idmodoevaluacion']) ?>
 
 
-
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Id:</label>
-    <div class="col-md-10">
-        <?php if (isset($modoevaluacion['idmodoevaluacion'])) : ?>
-            <?php echo form_input('idmodoevaluacion', $modoevaluacion['idmodoevaluacion'], array("disabled" => "disabled", 'placeholder' => 'Idmodoevaluacions')); ?>
-        <?php endif; ?>
-
-    </div>
-</div>
+	<div class="col-md-10">
+     <?php
+	echo form_input('idmodoevaluacion',$modoevaluacion['idmodoevaluacion'],array("disabled"=>"disabled",'placeholder'=>'Idmodoevaluacions'));
+	?>
+	</div> 
+</div> 
 
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Nombre:</label>
-    <div class="col-md-10">
-        <?php if (isset($modoevaluacion['nombre'])) : ?>
-            <?php echo form_input('nombre', $modoevaluacion['nombre'], array('placeholder' => 'Nombre del modoevaluacion')); ?>
-        <?php endif; ?>
-    </div>
-</div>
+	<div class="col-md-10">
+     <?php
+       echo form_input('nombre',$modoevaluacion['nombre'],array('placeholder'=>'Nombre del modoevaluacion')); 
 
+	?>
+	</div> 
+</div> 
+   
 
-<?php if (isset($modoevaluacion['ponderacion'])) : ?>
+<?php if(isset($modoevaluacion['ponderacion'])): ?>
     <div class="form-group row">
         <label class="col-md-2 col-form-label"> Ponderación:</label>
         <div class="col-md-10">
             <?php
-            echo form_input('ponderacion', $modoevaluacion['ponderacion'], array('placeholder' => 'Ponderación de la evaluación'));
+                echo form_input('ponderacion', $modoevaluacion['ponderacion'], array('placeholder' => 'Ponderación de la evaluación'));
             ?>
-        </div>
+        </div> 
     </div>
 <?php endif; ?>
 
