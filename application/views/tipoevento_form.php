@@ -24,6 +24,6 @@
 
 	<ul>
    	 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
-    		<li> <?php echo anchor('persona', 'Cancelar'); ?></li>
+    		<li> <?php echo anchor('persona', 'Atras'); ?></li>
 	</ul>
 </div> <?php echo form_close();?>

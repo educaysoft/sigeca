@@ -9,7 +9,7 @@
         <li style="border-right:1px solid green"><?php echo anchor('tipoevento/elultimo/', 'Último'); ?></li>
         <li> <?php echo anchor('tipoevento/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('tipoevento/edit/'.$tipoevento['idtipoevento'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('tipoevento/quitar/'.$tipoevento['idtipoevento'],'Quitar'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('tipoevento/Delete/'.$tipoevento['idtipoevento'],'Delete'); ?></li>
         <li> <?php echo anchor('tipoevento/listar/','Listar'); ?></li>
 
     </ul>

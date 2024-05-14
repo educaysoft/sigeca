@@ -62,10 +62,8 @@ public function edit()
 
 	public function  save_edit() {
 		$id=$this->input->post('idtipoevento');
-	 	$array_item=array(
-		 	'idtipoevento' => $this->input->post('idtipoevento'),
-		 	'nombre' => $this->input->post('nombre'),
-	 	);
+	 	$array_item=array( 'idtipoevento' => $this->input->post('idtipoevento'),
+		'nombre' => $this->input->post('nombre'),);
 	 	$this->tipoevento_model->update($id,$array_item);
 	 	redirect('tipoevento');
  	}
@@ -75,12 +73,12 @@ public function edit()
  	{
  		$data=$this->tipoevento_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('tipoevento/elultimo');
+	 	redirect('tipoevento/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
-	public function quitar()
- 	{
+	//public function quitar()
+ 	/*{
  		$result=$this->tipoevento_model->quitar($this->uri->segment(3));
 	 	if(!$result)
 		{
@@ -89,7 +87,7 @@ public function edit()
 		}else{
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}
- 	}
+ 	}*/
 
 	// Método para listar todos los tipos de eventos
     public function listar() {
@@ -110,7 +108,7 @@ function tipoevento_data() {
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idtipoevento,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('tipoevento/actual').'" data-idtipoevento="'.$r->idtipoevento.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-idtpievento="'.$r->idtipoevento.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -221,7 +219,7 @@ public function get_tipoevento() {
     if($this->input->post('idtipoevento')) {
         $this->db->select('*');
         $this->db->where(array('idtipoevento' => $this->input->post('idtipoevento')));
-        $query = $this->db->get('evento');
+        $query = $this->db->get('documento');
 	$data=$query->result();
 	echo json_encode($data);
 	}
