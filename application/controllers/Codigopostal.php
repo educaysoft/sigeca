@@ -13,7 +13,7 @@ class Codigopostal extends CI_Controller
 	{
 		$data['codigopostal'] = $this->codigopostal_model->codigopostal(1)->row_array();
 
-		$data['title'] = "Tipos de documentos";
+		$data['title'] = "Codigo Postal";
 		$this->load->view('template/page_header');
 		$this->load->view('codigopostal_record', $data);
 		$this->load->view('template/page_footer');
