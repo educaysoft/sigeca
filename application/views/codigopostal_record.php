@@ -16,43 +16,22 @@
 </div>
 <br>
 
-
 <?php echo form_hidden('idcodigopostal', $codigopostal['idcodigopostal']) ?>
-<table>
+<div class="form-group row">
+  <label class="col-md-2 col-form-label"> Id:</label>
+  <div class="col-md-10">
+    <?php echo form_input('idcodigopostal', $codigopostal['idcodigopostal'], array("disabled" => "disabled", 'placeholder' => 'Idcodigopostals')) ?>
+  </div>
+</div>
 
+<div class="form-group row">
+  <label class="col-md-2 col-form-label">Nombre:</label>
+  <div class="col-md-10">
+    <?php echo form_input('nombre', $codigopostal['nombre'], array("disabled" => "disabled", 'placeholder' => 'nombre')) ?>
+  </div>
+</div>
 
-
-
-
-
-  <tr>
-    <td>Id Tipo Doc:</td>
-    <td><?php echo form_input('idcodigopostal', $codigopostal['idcodigopostal'], array("disabled" => "disabled", 'placeholder' => 'Idcodigopostals')) ?></td>
-  </tr>
-
-
-
-  <tr>
-    <td>Descripción:</td>
-    <td><?php echo form_input('nombre', $codigopostal['nombre'], array("disabled" => "disabled", 'placeholder' => 'nombre')) ?></td>
-  </tr>
-
-
-
-
-
-
-
-
-
-
-
-</table>
 <?php echo form_close(); ?>
-
-
-
-
 
 </body>
 
