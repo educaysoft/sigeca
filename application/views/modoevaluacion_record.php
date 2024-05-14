@@ -8,7 +8,7 @@
     <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title; ?></h3>
     <ul>
 
-        <?php if (isset($modoevaluacion)) : ?>
+    <?php if (isset($modoevaluacion) && isset($modoevaluacion['idmodoevaluacion'])) : ?>
             <li> <?php echo anchor('modoevaluacion/elprimero/', 'primero'); ?></li>
             <li> <?php echo anchor('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion'], 'siguiente'); ?></li>
             <li> <?php echo anchor('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion'], 'anterior'); ?></li>
