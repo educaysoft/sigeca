@@ -17,51 +17,21 @@
 <br>
 
 
-<?php echo form_hidden('idpais',$pais['idpais']) ?>
+<?php echo form_hidden('idpais', iseet($pais['idpais']) ? $pais['idpais']:") ?>
 <table>
-
-
- 
- 
-
-
   <tr>
      <td>Id Tipo Doc:</td>
-     <td><?php echo form_input('idpais',$pais['idpais'],array("disabled"=>"disabled",'placeholder'=>'Idpaiss')) ?></td>
+     <td><?php echo form_input('idpais',iseet ($pais['idpais']) ? $pais['idpais']:",array("disabled"=>"disabled",'placeholder'=>'Idpaiss')) ?></td>
   </tr>
  
  
  
   <tr>
      <td>Descripción:</td>
-     <td><?php echo form_input('nombre',$pais['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre')) ?></td>
+     <td><?php echo form_input('nombre',isset($pais['nombre']? $pais['nombre']:",array("disabled"=>"disabled",'placeholder'=>'nombre')) ?></td>
   </tr>
-
-
-  
-
-
-
-
-
-
-
 
 </table>
 <?php echo form_close(); ?>
-
-
-
-
-
 </body>
-
-
-
-
-
-
-
-
-
 </html>
