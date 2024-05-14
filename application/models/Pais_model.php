@@ -7,7 +7,7 @@ class Pais_model extends CI_model {
 	}
 
 	function lista_paisesA(){
-		 $pais= $this->db->get('pais1');
+		 $pais= $this->db->get('pais');
 		 return $pais;
 	}
 

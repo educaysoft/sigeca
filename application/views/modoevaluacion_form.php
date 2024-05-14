@@ -12,9 +12,6 @@
 <table>
 
 
-
-
-
 <tr>
 <td> Nombre </td>
 <td><?php echo form_input("nombre","", array("placeholder"=>"Nombre de modoevaluacion"))  ?></td>
