@@ -75,7 +75,6 @@ public function edit()
 	 	redirect('modoevaluacion');
  	}
 
-
  	public function delete()
  	{
  		$data=$this->modoevaluacion_model->delete($this->uri->segment(3));
@@ -83,7 +82,6 @@ public function edit()
 	 	redirect('modoevaluacion/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
-
 
 public function listar()
 {
