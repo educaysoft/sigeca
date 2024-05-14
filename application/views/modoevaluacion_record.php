@@ -5,13 +5,13 @@
 <!--Fecha: Ultima evaluación: Sabado 4 febrero 2023 -->
 
 <div id="eys-nav-i">
-    <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title; ?></h3>
+    <h3 class="mt-3 pt-3"> <?php echo $title; ?></h3>
     <ul>
 
     <?php if (isset($modoevaluacion) && isset($modoevaluacion['idmodoevaluacion'])) : ?>
-            <li> <?php echo anchor('modoevaluacion/elprimero/', 'primero'); ?></li>
-            <li> <?php echo anchor('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion'], 'siguiente'); ?></li>
-            <li> <?php echo anchor('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion'], 'anterior'); ?></li>
+            <li> <?php echo anchor('modoevaluacion/elprimero/', 'Primero'); ?></li>
+            <li> <?php echo anchor('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion'], 'Siguiente'); ?></li>
+            <li> <?php echo anchor('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion'], 'Anterior'); ?></li>
             <li style="border-right:1px solid green"><?php echo anchor('modoevaluacion/elultimo/', 'Último'); ?></li>
             <li> <?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
             <li> <?php echo anchor('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion'], 'Edit'); ?></li>
