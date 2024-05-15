@@ -79,26 +79,14 @@
         </div>
     </div>
 
-    
+
     <script>
         $(document).ready(function() {
             var mytabla = $('#mydatac').DataTable({
-                "processing": true,
-                "serverSide": true,
                 "ajax": {
                     url: '<?php echo site_url('paralelo/paralelo_data') ?>',
                     type: 'GET'
                 },
-                "columns": [{
-                        "data": "ID"
-                    },
-                    {
-                        "data": "Nombre"
-                    },
-                    {
-                        "data": "Acciones"
-                    }
-                ]
             });
 
             $('#show_data').on('click', '.item_ver', function() {
