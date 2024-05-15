@@ -5,7 +5,7 @@
 <?php echo form_hidden("idparalelo")  ?>
 
 <div class="table-responsive">
-    <table class="table">
+    <table class="table table-bordered" style="width: 50%;">
         <tr>
             <td>Nombre</td>
             <td><?php echo form_input("nombre", "", array("class" => "form-control", "placeholder" => "Nombre de paralelo")) ?></td>
