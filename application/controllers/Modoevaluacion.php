@@ -85,6 +85,22 @@ class Modoevaluacion extends CI_Controller
     //	$db['default']['db_debug']=FALSE
   }
 
+  public function inhabilitar($id)
+{
+    // Llama al modelo para realizar la acción de inhabilitar
+    $data = $this->modoevaluacion_model->inhabilitar($id);
+    
+    // Verifica si la acción se realizó correctamente
+    if ($data) {
+        // Redirige a donde desees después de inhabilitar el registro
+        redirect('modoevaluacion/elprimero');
+    } else {
+        // Maneja el caso en el que la inhabilitación no fue exitosa
+        echo "Error al inhabilitar el registro.";
+    }
+}
+
+
   public function listar()
   {
     $data['modoevaluacion_list'] = $this->modoevaluacion_model->lista_modoevaluacions()->result();
