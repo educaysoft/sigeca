@@ -85,7 +85,7 @@ class Modoevaluacion extends CI_Controller
     //	$db['default']['db_debug']=FALSE
   }
 
-  public function inhabilitar($id)
+  public function inhabilitar_datos($id)
 {
     // Llama al modelo para realizar la acción de inhabilitar
     $data = $this->modoevaluacion_model->inhabilitar($id);
@@ -99,7 +99,6 @@ class Modoevaluacion extends CI_Controller
         echo "Error al inhabilitar el registro.";
     }
 }
-
 
   public function listar()
   {
