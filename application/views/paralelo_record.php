@@ -4,12 +4,12 @@
         <?php
         if (isset($paralelo)) {
         ?>
-            <li> <?php echo anchor('paralelo/elprimero/', 'primero'); ?></li>
-            <li> <?php echo anchor('paralelo/siguiente/' . $paralelo['idparalelo'], 'siguiente'); ?></li>
-            <li> <?php echo anchor('paralelo/anterior/' . $paralelo['idparalelo'], 'anterior'); ?></li>
+            <li> <?php echo anchor('paralelo/elprimero/', 'Primero'); ?></li>
+            <li> <?php echo anchor('paralelo/siguiente/' . $paralelo['idparalelo'], 'Siguiente'); ?></li>
+            <li> <?php echo anchor('paralelo/anterior/' . $paralelo['idparalelo'], 'Anterior'); ?></li>
             <li style="border-right:1px solid green"><?php echo anchor('paralelo/elultimo/', 'Último'); ?></li>
             <li> <?php echo anchor('paralelo/add', 'Nuevo'); ?></li>
-            <li> <?php echo anchor('paralelo/edit/' . $paralelo['idparalelo'], 'Edit'); ?></li>
+            <li> <?php echo anchor('paralelo/edit/' . $paralelo['idparalelo'], 'Editar'); ?></li>
             <li style="border-right:1px solid green"> <?php echo anchor('paralelo/inhabilitar/' . $paralelo['idparalelo'], 'Inhabilitar'); ?></li>
             <li> <?php echo anchor('paralelo/listar/', 'Listar'); ?></li>
 
