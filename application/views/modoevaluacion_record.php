@@ -12,7 +12,7 @@
             <li class="list-inline-item"> <?php echo anchor('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion'], 'Siguiente'); ?></li>
             <li class="list-inline-item"> <?php echo anchor('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion'], 'Anterior'); ?></li>
             <li class="list-inline-item">  <?php echo anchor('modoevaluacion/elultimo/', 'Último'); ?></li>
-            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
+            <li class="list-inline-item" style="border-left: 1px solid #ccc; padding-left: 10px;"> <?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
             <li class="list-inline-item"> <?php echo anchor('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion'], 'Editar'); ?></li>
             <li class="list-inline-item"> <?php echo anchor('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion'], 'Quitar'); ?></li>
             <li class="list-inline-item" style="border-left: 1px solid #ccc; padding-left: 10px;"> <?php echo anchor('modoevaluacion/listar/', 'Listar'); ?></li>

@@ -52,7 +52,13 @@
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Nombre:</label>
     <div class="col-md-10">
-        <?php echo form_input('nombre', isset($paralelo['nombre']) ? $paralelo['nombre'] : '', array('placeholder' => 'Nombre del paralelo')); ?>
+        <?php
+        if (isset($paralelo['nombre'])) {
+            echo form_input('nombre', $paralelo['nombre'], array("disabled" => "disabled", 'placeholder' => 'Nombre del paralelo'));
+        } else {
+            echo form_input('nombre', $paralelo['nombre'], array("disabled" => "disabled", 'placeholder' => 'Nombre del paralelo'));
+        }
+        ?>
     </div>
 </div>
 
