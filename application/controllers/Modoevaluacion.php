@@ -19,7 +19,7 @@ class Modoevaluacion extends CI_Controller
   public function index()
   {
     //(isset($this->session->userdata['logged_in'])){
-    $data['modoevaluacion'] = $this->modoevaluacion_model->modoevaluaciones(1)->row_array();
+    $data['modoevaluacion'] = $this->modoevaluacion_model->modoevaluacion(1)->row_array();
     $data['title'] = "Lista de modoevaluaciones";
     $this->load->view('template/page_header');
     $this->load->view('modoevaluacion_record', $data);
