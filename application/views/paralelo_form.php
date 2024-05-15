@@ -1,22 +1,23 @@
-<h2> <?php echo $title; ?> </h2>
-<hr/>
-<?php echo form_open("paralelo/save") ?>
+<h2><?php echo $title; ?></h2>
+<hr />
+
+<?php echo form_open("paralelo/save", array('class' => 'form-horizontal')) ?>
 <?php echo form_hidden("idparalelo")  ?>
-<table>
 
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <td>Nombre</td>
+            <td><?php echo form_input("nombre", "", array("class" => "form-control", "placeholder" => "Nombre de paralelo")) ?></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <hr>
+                <?php echo form_submit("submit", "Guardar", array("class" => "btn btn-primary")); ?>
+                <?php echo anchor("paralelo", "Atras", array("class" => "btn btn-secondary")); ?>
+            </td>
+        </tr>
+    </table>
+</div>
 
-
-
-
-<tr>
-<td> Nombre </td>
-<td><?php echo form_input("nombre","", array("placeholder"=>"Nombre de paralelo"))  ?></td>
-</tr>
-
-<tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("paralelo","Atras") ?> </td>
-</tr>
-
-</table>
-<?php echo form_close();?>
-
+<?php echo form_close(); ?>
