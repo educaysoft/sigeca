@@ -76,6 +76,7 @@ public function edit()
  	}
 
 
+
 public function listar()
 {
 	
@@ -107,8 +108,7 @@ function paralelo_data()
 		);
 		echo json_encode($output);
 		exit();
-	
-			
+				
 
 }
 
@@ -129,15 +129,6 @@ public function actual()
     $this->load->view('template/page_footer');
   }
  }
-
-
-
-
-
-
-
-
-
 
 
 

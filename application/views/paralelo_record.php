@@ -10,7 +10,7 @@
             <li style="border-right:1px solid green"><?php echo anchor('paralelo/elultimo/', 'Último'); ?></li>
             <li> <?php echo anchor('paralelo/add', 'Nuevo'); ?></li>
             <li> <?php echo anchor('paralelo/edit/' . $paralelo['idparalelo'], 'Editar'); ?></li>
-            <li style="border-right:1px solid green"> <?php echo anchor('paralelo/inhabilitar/' . $paralelo['idparalelo'], 'Inhabilitar'); ?></li>
+            <li style="border-right:1px solid green"> <?php echo anchor('paralelo/eliminar/' . $paralelo['idparalelo'], 'Eliminar'); ?></li>
             <li> <?php echo anchor('paralelo/listar/', 'Listar'); ?></li>
 
         <?php
