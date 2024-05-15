@@ -1,4 +1,4 @@
-<div id="eys-nav-i p-3">
+<div id="eys-nav-i" class="mt-2 p-2">
     <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
     <ul>
         <?php
