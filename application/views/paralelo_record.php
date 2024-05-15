@@ -1,4 +1,4 @@
-<div id="eys-nav-i" class="mt-2 p-2">
+<div id="eys-nav-i" class="mt-3 p-3">
     <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
     <ul>
         <?php
@@ -10,7 +10,7 @@
             <li style="border-right:1px solid green"><?php echo anchor('paralelo/elultimo/', 'Último'); ?></li>
             <li> <?php echo anchor('paralelo/add', 'Nuevo'); ?></li>
             <li> <?php echo anchor('paralelo/edit/' . $paralelo['idparalelo'], 'Edit'); ?></li>
-            <li style="border-right:1px solid green"> <?php echo anchor('paralelo/delete/' . $paralelo['idparalelo'], 'Delete'); ?></li>
+            <li style="border-right:1px solid green"> <?php echo anchor('paralelo/inhabilitar/' . $paralelo['idparalelo'], 'Inhabilitar'); ?></li>
             <li> <?php echo anchor('paralelo/listar/', 'Listar'); ?></li>
 
         <?php
