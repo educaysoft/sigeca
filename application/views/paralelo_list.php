@@ -87,7 +87,7 @@
                 "serverSide": true,
                 "ajax": {
                     url: '<?php echo site_url('paralelo/paralelo_data') ?>',
-                    type: 'POST'
+                    type: 'GET'
                 },
                 "columns": [{
                         "data": "ID"

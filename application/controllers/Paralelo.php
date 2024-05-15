@@ -81,10 +81,10 @@ class Paralelo extends CI_Controller
 
 	function paralelo_data()
 	{
-		// Obtener los parámetros POST
-		$draw = intval($this->input->post("draw"));
-		$start = intval($this->input->post("start"));
-		$length = intval($this->input->post("length"));
+		$draw = intval($this->input->get("draw"));
+		$start = intval($this->input->get("start"));
+		$length = intval($this->input->get("length"));
+
 
 		// Obtener los datos de la base de datos
 		$data0 = $this->paralelo_model->lista_paralelos()->result();
