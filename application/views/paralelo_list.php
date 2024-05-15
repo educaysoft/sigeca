@@ -67,7 +67,7 @@
 <!-- Botón de Regreso -->
 <div class="row justify-content-center">
     <div class="col-md-12" style="margin-top: 20px; text-align: center;">
-        <a href="<?php echo site_url('paralelo'); ?>" class="btn btn-secondary">Regresar</a>
+        <a href="<?php echo site_url('paralelo'); ?>" class="btn btn-secondary text-danger-emphasis">Regresar</a>
     </div>
 </div>
 
