@@ -79,36 +79,41 @@ class Paralelo extends CI_Controller
 
 
 
+	public function listar()
+	{
+
+		$data['title'] = "Paralelo";
+		$this->load->view('template/page_header');
+		$this->load->view('paralelo_list', $data);
+		$this->load->view('template/page_footer');
+	}
+
+
+
 	function paralelo_data()
 	{
 		$draw = intval($this->input->get("draw"));
-		$start = intval($this->input->get("start"));
-		$length = intval($this->input->get("length"));
+		$draw = intval($this->input->get("start"));
+		$draw = intval($this->input->get("length"));
 
 
-		// Obtener los datos de la base de datos
-		$data0 = $this->paralelo_model->lista_paralelos()->result();
+		$data0 = $this->paralelo_model->lista_paralelos();
 		$data = array();
-		foreach ($data0 as $r) {
+		foreach ($data0->result() as $r) {
 			$data[] = array(
-				$r->idparalelo,
-				$r->nombre,
-				'<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="' . site_url('paralelo/actual') . '" data-idparalelo="' . $r->idparalelo . '">Ver</a>'
+				$r->idparalelo, $r->nombre,
+				$r->href = '<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="' . site_url('paralelo/actual') . '"     data-idparalelo="' . $r->idparalelo . '">Ver</a>'
 			);
 		}
-
-		// Preparar la respuesta para DataTables
 		$output = array(
 			"draw" => $draw,
-			"recordsTotal" => count($data0),
-			"recordsFiltered" => count($data0),
+			"recordsTotal" => $data0->num_rows(),
+			"recordsFiltered" => $data0->num_rows(),
 			"data" => $data
 		);
 		echo json_encode($output);
 		exit();
 	}
-
-
 
 
 
