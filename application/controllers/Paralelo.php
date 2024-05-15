@@ -90,27 +90,31 @@ public function listar()
 
 function paralelo_data()
 {
-		$draw= intval($this->input->get("draw"));
-		$draw= intval($this->input->get("start"));
-		$draw= intval($this->input->get("length"));
+    // Obtener los parámetros POST
+    $draw = intval($this->input->post("draw"));
+    $start = intval($this->input->post("start"));
+    $length = intval($this->input->post("length"));
 
-
-	 	$data0 = $this->paralelo_model->lista_paralelos();
-		$data=array();
-		foreach($data0->result() as $r){
-			$data[]=array($r->idparalelo,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('paralelo/actual').'"     data-idparalelo="'.$r->idparalelo.'">Ver</a>');
-		}	
-		$output=array( "draw"=>$draw,
-			"recordsTotal"=> $data0->num_rows(),
-			"recordsFiltered"=> $data0->num_rows(),
-			"data"=>$data
-		);
-		echo json_encode($output);
-		exit();
-				
-
+    // Obtener los datos de la base de datos
+    $data0 = $this->paralelo_model->lista_paralelos();
+    $data = array();
+    foreach ($data0->result() as $r) {
+        $data[] = array(
+            $r->idparalelo,
+            $r->nombre,
+            $r->href = '<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="' . site_url('paralelo/actual') . '" data-idparalelo="' . $r->idparalelo . '">Ver</a>'
+        );
+    }
+    $output = array(
+        "draw" => $draw,
+        "recordsTotal" => $data0->num_rows(),
+        "recordsFiltered" => $data0->num_rows(),
+        "data" => $data
+    );
+    echo json_encode($output);
+    exit();
 }
+
 
 
 
