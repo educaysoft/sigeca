@@ -74,7 +74,7 @@ class Paralelo extends CI_Controller
 		$data = $this->paralelo_model->delete($this->uri->segment(3));
 		echo json_encode($data);
 		redirect('paralelo/elprimero');
-			$db['default']['db_debug']=FALSE
+			// $db['default']['db_debug']=FALSE
 	}
 
 
