@@ -1,104 +1,68 @@
 <?php
-class Paralelo_model extends CI_model {
+class Paralelo_model extends CI_model
+{
 
-	function lista_paralelos(){
-		 $paralelo= $this->db->get('paralelo');
-		 return $paralelo;
-	}
-
- 	function paralelo( $id){
- 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $id.'"');
- 		return $paralelo;
- 	}
-
- 	function save($array)
- 	{
-		$this->db->insert("paralelo", $array);
- 	}
-
- 	function update($id,$array_item)
- 	{
- 		$this->db->where('idparalelo',$id);
- 		$this->db->update('paralelo',$array_item);
-	}
- 
-
-
- 	public function delete($id)
+	// Obtener todos los registros de la tabla "paralelo"
+	function lista_paralelos()
 	{
- 		$this->db->where('idparalelo',$id);
+		return $this->db->get('paralelo');
+	}
+
+	// Obtener un registro específico de la tabla "paralelo" por su ID
+	function paralelo($id)
+	{
+		return $this->db->get_where('paralelo', array('idparalelo' => $id));
+	}
+
+	// Guardar un nuevo registro en la tabla "paralelo"
+	function save($array)
+	{
+		$this->db->insert("paralelo", $array);
+	}
+
+	// Actualizar un registro en la tabla "paralelo" por su ID
+	function update($id, $array_item)
+	{
+		$this->db->where('idparalelo', $id);
+		$this->db->update('paralelo', $array_item);
+	}
+
+	// Eliminar un registro de la tabla "paralelo" por su ID
+	public function delete($id)
+	{
+		$this->db->where('idparalelo', $id);
 		$this->db->delete('paralelo');
-    		if($this->db->affected_rows()==1)
-			$result=true;
-		else
-			$result=false;
-		return $result;
- 	}
+		// Verificar si se afectó una fila (se eliminó el registro)
+		return $this->db->affected_rows() == 1;
+	}
 
-
+	// Obtener el primer registro de la tabla "paralelo"
 	function elprimero()
 	{
-		$query=$this->db->order_by("idparalelo")->get('paralelo');
-		if($query->num_rows()>0)
-		{
-			return $query->first_row('array');
-		}	
-			return array();
-
+		return $this->db->order_by("idparalelo")->get('paralelo')->first_row('array') ?? array();
 	}
 
-
-// Para ir al último registro
+	// Obtener el último registro de la tabla "paralelo"
 	function elultimo()
 	{
-		$query=$this->db->order_by("idparalelo")->get('paralelo');
-		if($query->num_rows()>0)
-		{
-			return $query->last_row('array');
-		}	
-			return array();
-
+		return $this->db->order_by("idparalelo", "desc")->get('paralelo')->first_row('array') ?? array();
 	}
 
+	// Obtener el registro siguiente al proporcionado por su ID
+	function siguiente($id)
+	{
+		$paralelo = $this->db->select("idparalelo")->order_by("idparalelo")->get('paralelo')->result_array();
+		$clave = array_search(array("idparalelo" => $id), $paralelo);
+		$id_siguiente = isset($paralelo[$clave + 1]) ? $paralelo[$clave + 1]["idparalelo"] : $id;
+		return $this->db->get_where('paralelo', array('idparalelo' => $id_siguiente));
+	}
 
-	// Para moverse al siguiente registro
- 	function siguiente($id){
- 		$paralelo = $this->db->select("idparalelo")->order_by("idparalelo")->get('paralelo')->result_array();
-		$arr=array("idparalelo"=>$id);
-		$clave=array_search($arr,$paralelo);
-	   if(array_key_exists($clave+1,$paralelo))
-		 {
-
- 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $paralelo[$clave+1]["idparalelo"].'"');
-		 }else{
-
- 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $id.'"');
-		 }
-		 	
- 		return $paralelo;
- 	}
-
-
-// Para moverse al anterior registro
- 	function anterior($id){
- 		$paralelo = $this->db->select("idparalelo")->order_by("idparalelo")->get('paralelo')->result_array();
-		$arr=array("idparalelo"=>$id);
-		$clave=array_search($arr,$paralelo);
-	   if(array_key_exists($clave-1,$paralelo))
-		 {
-
- 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $paralelo[$clave-1]["idparalelo"].'"');
-		 }else{
-
- 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $id.'"');
-		 }
-		 	
- 		return $paralelo;
- 	}
-
-
-
-
-
-
+	// Obtener el registro anterior al proporcionado por su ID
+	function anterior($id)
+	{
+		$paralelo = $this->db->select("idparalelo")->order_by("idparalelo")->get('paralelo')->result_array();
+		$clave = array_search(array("idparalelo" => $id), $paralelo);
+		$id_anterior = isset($paralelo[$clave - 1]) ? $paralelo[$clave - 1]["idparalelo"] : $id;
+		return $this->db->get_where('paralelo', array('idparalelo' => $id_anterior));
+	}
 }
