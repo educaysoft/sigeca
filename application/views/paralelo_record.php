@@ -1,18 +1,30 @@
+<div id="eys-nav-i">
+    <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+    <ul>
+        <?php
+        if (isset($paralelo)) {
+        ?>
+            <li> <?php echo anchor('paralelo/elprimero/', 'primero'); ?></li>
+            <li> <?php echo anchor('paralelo/siguiente/' . $paralelo['idparalelo'], 'siguiente'); ?></li>
+            <li> <?php echo anchor('paralelo/anterior/' . $paralelo['idparalelo'], 'anterior'); ?></li>
+            <li style="border-right:1px solid green"><?php echo anchor('paralelo/elultimo/', 'Último'); ?></li>
+            <li> <?php echo anchor('paralelo/add', 'Nuevo'); ?></li>
+            <li> <?php echo anchor('paralelo/edit/' . $paralelo['idparalelo'], 'Edit'); ?></li>
+            <li style="border-right:1px solid green"> <?php echo anchor('paralelo/delete/' . $paralelo['idparalelo'], 'Delete'); ?></li>
+            <li> <?php echo anchor('paralelo/listar/', 'Listar'); ?></li>
 
-<div id="eys-nav-i" class="mt-4 p-2">
-    <h3 class="mt-3 p-3"><?php echo $title; ?></h3>
-    <ul class="list-inline d-inline">
-        <?php if (isset($modoevaluacion) && isset($modoevaluacion['idmodoevaluacion'])) : ?>
-            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/elprimero/', 'Primero'); ?></li>
-            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion'], 'Siguiente'); ?></li>
-            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion'], 'Anterior'); ?></li>
-            <li class="list-inline-item" style="border-left: 1px solid #ccc; padding-left: 10px;">  <?php echo anchor('modoevaluacion/elultimo/', 'Último'); ?></li>
-            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
-            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion'], 'Editar'); ?></li>
-            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion'], 'Quitar'); ?></li>
-            <li class="list-inline-item" style="border-left: 1px solid #ccc; padding-left: 10px;"> <?php echo anchor('modoevaluacion/listar/', 'Listar'); ?></li>
-        <?php endif; ?>
+        <?php
+        } else {
+        ?>
+
+            <li> <?php echo anchor('paralelo/add', 'Nuevo'); ?></li>
+        <?php
+        }
+        ?>
     </ul>
+</div>
+<br>
+<br>
 
 <div class="form-group row">
     <div class="col-md-10">
