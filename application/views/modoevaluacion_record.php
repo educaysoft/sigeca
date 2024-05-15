@@ -11,7 +11,7 @@
             <li class="list-inline-item"> <?php echo anchor('modoevaluacion/elprimero/', 'Primero'); ?></li>
             <li class="list-inline-item"> <?php echo anchor('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion'], 'Siguiente'); ?></li>
             <li class="list-inline-item"> <?php echo anchor('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion'], 'Anterior'); ?></li>
-            <li class="list-inline-item"> <?php echo anchor('modoevaluacion/elultimo/', 'Último'); ?></li>
+            <li class="list-inline-item">  <?php echo anchor('modoevaluacion/elultimo/', 'Último'); ?></li>
             <li class="list-inline-item"> <?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
             <li class="list-inline-item"> <?php echo anchor('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion'], 'Editar'); ?></li>
             <li class="list-inline-item"> <?php echo anchor('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion'], 'Quitar'); ?></li>
@@ -22,7 +22,7 @@
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id:</label>
+   
     <div class="col-md-10">
         <?php echo form_open('modoevaluacion/save_edit') ?>
         <?php if (isset($modoevaluacion['idmodoevaluacion'])) : ?>
@@ -32,6 +32,7 @@
 </div>
 
 <div class="form-group row">
+<label class="col-md-2 col-form-label"> Id:</label>
     <div class="col-md-10">
         <?php if (isset($modoevaluacion['idmodoevaluacion'])) : ?>
             <?php echo form_input('idmodoevaluacion', $modoevaluacion['idmodoevaluacion'], array("disabled" => "disabled", 'placeholder' => 'Idmodoevaluacions')); ?>
