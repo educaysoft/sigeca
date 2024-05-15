@@ -13,7 +13,7 @@ class Paralelo extends CI_Controller
 	{
 		//	if(isset($this->session->userdata['logged_in'])){
 		$data['paralelo'] = $this->paralelo_model->paralelo(1)->row_array();
-		$data['title'] = "Lista de paraleloes";
+		$data['title'] = "Lista de paralelos";
 		$this->load->view('template/page_header');
 		$this->load->view('paralelo_record', $data);
 		$this->load->view('template/page_footer');
