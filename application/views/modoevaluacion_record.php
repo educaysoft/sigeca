@@ -32,7 +32,6 @@
 </div>
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id:</label>
     <div class="col-md-10">
         <?php if (isset($modoevaluacion['idmodoevaluacion'])) : ?>
             <?php echo form_input('idmodoevaluacion', $modoevaluacion['idmodoevaluacion'], array("disabled" => "disabled", 'placeholder' => 'Idmodoevaluacions')); ?>

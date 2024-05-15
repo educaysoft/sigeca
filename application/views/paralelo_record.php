@@ -27,7 +27,6 @@
 <br>
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id:</label>
     <div class="col-md-10">
         <?php echo form_open('paralelo/save_edit') ?>
         <?php if (isset($paralelo['idparalelo'])) : ?>
@@ -41,9 +40,9 @@
     <div class="col-md-10">
         <?php
         if (isset($paralelo['idparalelo'])) {
-            echo form_input('idparalelo', $paralelo['idparalelo'], array("disabled" => "disabled", 'placeholder' => 'Idparalelos'));
+            echo form_input('idparalelo', $paralelo['idparalelo'], array("disabled" => "disabled", 'placeholder' => 'Numero del Pararelo'));
         } else {
-            echo form_input('idparalelo', '', array("disabled" => "disabled", 'placeholder' => 'Idparalelos'));
+            echo form_input('idparalelo', '', array("disabled" => "disabled", 'placeholder' => 'Numero del Pararelo'));
         }
         ?>
     </div>
