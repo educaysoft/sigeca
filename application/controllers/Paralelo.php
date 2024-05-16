@@ -185,4 +185,5 @@ class Paralelo extends CI_Controller
 		$this->load->view('paralelo_record', $data);
 		$this->load->view('template/page_footer');
 	}
+
 }
