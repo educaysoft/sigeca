@@ -7,14 +7,22 @@ class Tiposangre extends CI_Controller{
       $this->load->model('tiposangre_model');
 }
 
-public function index(){
+/* public function index(){
   	$data['tiposangre']=$this->tiposangre_model->tiposangre(1)->row_array();
  
   	$data['title']="Tipos de documentos";
 	$this->load->view('template/page_header');		
   	$this->load->view('tiposangre_record',$data);
 	$this->load->view('template/page_footer');
+} */
+public function index(){
+    $data['tiposangre'] = $this->tiposangre_model->elprimero();
+    $data['title'] = "Tipos de documentos";
+    $this->load->view('template/page_header');     
+    $this->load->view('tiposangre_record',$data);
+    $this->load->view('template/page_footer');
 }
+
 
 
 public function add()
@@ -81,7 +89,7 @@ public function listar()
   $data['tiposangre_list'] = $this->tiposangre_model->lista_tiposangresA()->result();
   $data['title']="Tipo documento";
 	$this->load->view('template/page_header');		
-  $this->load->view('tiposangre_list',$data);
+  	$this->load->view('tiposangre_list',$data);
 	$this->load->view('template/page_footer');
 }
 
