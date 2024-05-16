@@ -6,7 +6,7 @@
 
 <div id="eys-nav-i" class="mt-4 p-2">
     <h3 class="mt-3 p-3"><?php echo $title; ?></h3>
-    <ul class="list-inline d-inline">
+    <ul class="list-inline">
         <?php if (isset($modoevaluacion) && isset($modoevaluacion['idmodoevaluacion'])) : ?>
             <li class="list-inline-item"><?php echo anchor('modoevaluacion/elprimero/', 'Primero'); ?></li>
             <li class="list-inline-item"><?php echo anchor('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion'], 'Siguiente'); ?></li>
