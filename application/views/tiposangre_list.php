@@ -1,40 +1,40 @@
-<html>
-<body>
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top:  0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top:  0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
 
-/* Modal Content */
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
 </style>
 
 <div id="eys-nav-i">
     <ul>
-<li>
-    <?php echo anchor('tiposangre','Home');?>
-
-</li>
+        <li>
+            <?php echo anchor('tiposangre','Home');?>
+        </li>
     </ul>
 </div>
+
 <div class="row justify-content-center">
     <div class="row">
         <div class="col-12">
@@ -55,31 +55,22 @@ body {font-family: Arial, Helvetica, sans-serif;}
         </div>
     </div>
 </div>
+
 <script type="text/javascript">
- $(document).ready(funtion(){
-    var mytable= $('#mydatac').DataTable({
-        "ajax": {
-            url: '<?php echo site_url('tiposangre/tiposangre_data')?>',
-            type: 'GET'
-        }
+    $(document).ready(function(){
+        var mytable = $('#mydatac').DataTable({
+            "ajax": {
+                url: '<?php echo site_url('tiposangre/tiposangre_data')?>',
+                type: 'GET'
+            }
+        });
+
+        $('#show_data').on('click', '.item_ver', function(){
+            var id = $(this).data('idtiposangre');
+            var retorno = $(this).data('retorno');
+            window.location.href = retorno + '/' + id;
+        });
     });
-    $('#show_data').on('click', '.item_ver', funtion(){
-        var id= $(this).data('idtiposangre');
-        var retorno= $(this).data('retorno');
-        window.location.href = retorno + '/' + id;
-    })
- })   
 </script>
 
 
-</body>
-
-
-
-
-
-
-
-
-
-</html>
