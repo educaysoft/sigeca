@@ -8,14 +8,14 @@
     <h3 class="mt-3 p-3"><?php echo $title; ?></h3>
     <ul class="list-inline">
         <?php if (isset($modoevaluacion) && isset($modoevaluacion['idmodoevaluacion'])) : ?>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/elprimero/', 'Primero'); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion'], 'Siguiente'); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion'], 'Anterior'); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/elultimo/', 'Último'); ?></li>
-            <li class="list-inline-item" style="border-left: 1px solid #ccc; padding-left: 10px;"><?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion'], 'Editar'); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion'], 'Quitar'); ?></li>
-            <li class="list-inline-item" style="border-left: 1px solid #ccc; padding-left: 10px;"><?php echo anchor('modoevaluacion/listar/', 'Listar'); ?></li>
+            <li class="list-inline-item"><?php echo anchor('modoevaluacion/elprimero/', 'Primero', ['class' => 'btn btn-primary btn-sm']); ?></li>
+            <li class="list-inline-item"><?php echo anchor('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion'], 'Siguiente', ['class' => 'btn btn-primary btn-sm']); ?></li>
+            <li class="list-inline-item"><?php echo anchor('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion'], 'Anterior', ['class' => 'btn btn-primary btn-sm']); ?></li>
+            <li class="list-inline-item"><?php echo anchor('modoevaluacion/elultimo/', 'Último', ['class' => 'btn btn-primary btn-sm']); ?></li>
+            <li class="list-inline-item border-left pl-3"><?php echo anchor('modoevaluacion/add', 'Nuevo', ['class' => 'btn btn-success btn-sm']); ?></li>
+            <li class="list-inline-item"><?php echo anchor('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion'], 'Editar', ['class' => 'btn btn-warning btn-sm']); ?></li>
+            <li class="list-inline-item"><?php echo anchor('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion'], 'Quitar', ['class' => 'btn btn-danger btn-sm']); ?></li>
+            <li class="list-inline-item border-left pl-3"><?php echo anchor('modoevaluacion/listar/', 'Listar', ['class' => 'btn btn-info btn-sm']); ?></li>
         <?php else : ?>
             <!-- Habilitar el botón "Nuevo" si no hay ningún dato en la base de datos -->
             <li class="list-inline-item"><?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
