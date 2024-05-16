@@ -17,7 +17,7 @@
 </div>
 <br>
 
-<?php echo form_hidden('idprovincia',$provincia['idprovincia']) ?>
+<?php echo form_hidden('idprovincia', isset ($provincia['idprovincia']) ? $provincia['idprovincia'] : '') ?>
 <table>
 
  
@@ -25,14 +25,14 @@
 
   <tr>
      <td>Id Tipo Doc:</td>
-     <td><?php echo form_input('idprovincia',$provincia['idprovincia'],array("disabled"=>"disabled",'placeholder'=>'Idprovincias')) ?></td>
+     <td><?php echo form_input('idprovincia',isset ($provincia['idprovincia']) ? $provincia['idprovincia'] : '',array("disabled"=>"disabled",'placeholder'=>'Idprovincias')) ?></td>
   </tr>
  
  
  
   <tr>
      <td>Descripción:</td>
-     <td><?php echo form_input('nombre',$provincia['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre')) ?></td>
+     <td><?php echo form_input('nombre',isset ($provincia['nombre']) ? $provincia ['nombre'] ,array("disabled"=>"disabled",'placeholder'=>'nombre')) ?></td>
   </tr>
 
   
