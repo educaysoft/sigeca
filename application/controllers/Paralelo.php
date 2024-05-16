@@ -81,7 +81,6 @@ class Paralelo extends CI_Controller
 
 	public function listar()
 	{
-
 		$data['title'] = "Paralelo";
 		$this->load->view('template/page_header');
 		$this->load->view('paralelo_list', $data);
