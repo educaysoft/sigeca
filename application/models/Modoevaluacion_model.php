@@ -2,8 +2,7 @@
 class Modoevaluacion_model extends CI_model {
 
 	function lista_modoevaluacions(){
-		 $modoevaluacion= $this->db->get('modoevaluacion');
-		 return $modoevaluacion;
+		return $this->db->get('modoevaluacion');
 	}
 
  	function modoevaluacion( $id){
