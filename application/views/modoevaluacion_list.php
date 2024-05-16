@@ -34,11 +34,6 @@
         width: 80%;
     }
 </style>
-<div id="eys-nav-i">
-    <ul>
-        <li> <?php echo anchor('tipoevento', 'Home'); ?></li>
-    </ul>
-</div>
 
 <div class="row justify-content-center">
     <!-- Page Heading -->
