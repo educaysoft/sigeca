@@ -34,8 +34,12 @@
         width: 80%;
     }
 </style>
+<div id="eys-nav-i">
+    <ul>
+        <li> <?php echo anchor('tipoevento', 'Home'); ?></li>
+    </ul>
+</div>
 
-<body>
 <div class="row justify-content-center">
     <!-- Page Heading -->
     <div class="row">
@@ -43,7 +47,6 @@
             <div class="col-md-12">
                 <h3>Documento_estado - Listar
                     <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
-
                 </h3>
             </div>
 
@@ -51,8 +54,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Número</th>
-                        <th>Nombre</th>
+                        <th>nombre</th>
                         <th style="text-align: right;">Actions</th>
                     </tr>
                 </thead>
@@ -65,16 +67,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="Modal_pdf" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height: 800px;">
-
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    </div>
-
-</div>
-
-
-<script>
+<script type="text/javascript">
     $(document).ready(function() {
         var mytabla = $('#mydatac').DataTable({
             "ajax": {
@@ -90,6 +83,3 @@
         });
     });
 </script>
-</body>
-
-</html>

@@ -102,6 +102,7 @@ class Modoevaluacion extends CI_Controller
 
   public function listar()
   {
+    $data['modoevaluacion_list'] = $this->modoevaluacion_model->lista_modoevaluacions()->result();
     $data['title'] = "Modoevaluacion";
     $this->load->view('template/page_header');
     $this->load->view('modoevaluacion_list', $data);

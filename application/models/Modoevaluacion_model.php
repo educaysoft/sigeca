@@ -22,7 +22,6 @@ class Modoevaluacion_model extends CI_model {
 	}
  
 
-
  	public function delete($id)
 	{
  		$this->db->where('idmodoevaluacion',$id);

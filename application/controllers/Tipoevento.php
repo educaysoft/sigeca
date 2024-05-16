@@ -59,7 +59,6 @@ public function edit()
  
 }
 
-
 	public function  save_edit() {
 		$id=$this->input->post('idtipoevento');
 	 	$array_item=array( 'idtipoevento' => $this->input->post('idtipoevento'),
