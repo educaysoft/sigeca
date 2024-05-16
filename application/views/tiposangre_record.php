@@ -17,18 +17,13 @@
 
 
 <?php echo form_hidden('idtiposangre',$tiposangre['idtiposangre']) ?>
-<table>
-
-  <tr>
-     <td>Id Tipo Doc:</td>
-     <td><?php echo form_input('idtiposangre',$tiposangre['idtiposangre'],array("disabled"=>"disabled",'placeholder'=>'Idtiposangres')) ?></td>
-  </tr>
- 
-  <tr>
-     <td>Descripción:</td>
-     <td><?php echo form_input('nombre',$tiposangre['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre')) ?></td>
-  </tr>
-</table>
+<div>
+  <label class="col-md-2 col-form-label">Id tipo doc:</label>
+  <div class="col-md-10">
+    <?php echo form_input('idtiposangre',$tiposangre['idtiposangre'],array("disabled"=>"disabled",'placeholder'=>'Idtiposangre'))?>
+    
+  </div>
+</div>
 <?php echo form_close(); ?>
 
 
