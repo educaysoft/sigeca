@@ -5,23 +5,23 @@
 <!--Fecha: Última evaluación: Sábado 4 febrero 2023 -->
 
 <div id="eys-nav-i" class="mt-4 p-2">
-    <h3 class="mt-3 p-3"><?php echo $title; ?></h3>
-    <ul class="list-inline">
+    <h3 class="mt-3 p-3 bg-light border rounded"><?php echo $title; ?></h3>
+    <ul class="list-inline inicio-list-inline">
         <?php if (isset($modoevaluacion) && isset($modoevaluacion['idmodoevaluacion'])) : ?>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/elprimero/', 'Primero', ['class' => 'btn btn-primary btn-sm']); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion'], 'Siguiente', ['class' => 'btn btn-primary btn-sm']); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion'], 'Anterior', ['class' => 'btn btn-primary btn-sm']); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/elultimo/', 'Último', ['class' => 'btn btn-primary btn-sm']); ?></li>
-            <li class="list-inline-item border-left pl-3"><?php echo anchor('modoevaluacion/add', 'Nuevo', ['class' => 'btn btn-success btn-sm']); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion'], 'Editar', ['class' => 'btn btn-warning btn-sm']); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion'], 'Quitar', ['class' => 'btn btn-danger btn-sm']); ?></li>
-            <li class="list-inline-item border-left pl-3"><?php echo anchor('modoevaluacion/listar/', 'Listar', ['class' => 'btn btn-info btn-sm']); ?></li>
+            <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/elprimero/'); ?>" class="text-decoration-none text-dark">Primero</a></li>
+            <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion']); ?>" class="text-decoration-none text-dark">Siguiente</a></li>
+            <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion']); ?>" class="text-decoration-none text-dark">Anterior</a></li>
+            <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/elultimo/'); ?>" class="text-decoration-none text-dark">Último</a></li>
+            <li class="list-inline-item border-left pl-3"><a href="<?php echo site_url('modoevaluacion/add'); ?>" class="text-decoration-none text-dark">Nuevo</a></li>
+            <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion']); ?>" class="text-decoration-none text-dark">Editar</a></li>
+            <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion']); ?>" class="text-decoration-none text-dark">Quitar</a></li>
+            <li class="list-inline-item border-left pl-3"><a href="<?php echo site_url('modoevaluacion/listar/'); ?>" class="text-decoration-none text-dark">Listar</a></li>
         <?php else : ?>
-            <!-- Habilitar el botón "Nuevo" si no hay ningún dato en la base de datos -->
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
+            <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/add'); ?>" class="text-decoration-none text-dark">Nuevo</a></li>
         <?php endif; ?>
     </ul>
 </div>
+
 
 <div class="container mt-4">
     <div class="row justify-content-center">
