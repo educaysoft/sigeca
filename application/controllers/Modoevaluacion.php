@@ -119,7 +119,7 @@ class Modoevaluacion extends CI_Controller
     $data = array();
     foreach ($data0->result() as $r) {
       $data[] = array(
-        $r->idmodoevaluacion, $r->numero, $r->nombre, $r->ponderacion,
+        $r->idmodoevaluacion,$r->nombre, $r->ponderacion,
         $r->href = '<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="' . site_url('modoevaluacion/actual') . '" data-idmodoevaluacion="' . $r->idmodoevaluacion . '">Ver</a>'
       );
     }

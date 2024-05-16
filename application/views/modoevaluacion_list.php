@@ -54,7 +54,8 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>nombre</th>
+                        <th>Nombre</th>
+                        <th>Ponderacion</th>
                         <th style="text-align: right;">Actions</th>
                     </tr>
                 </thead>
@@ -72,7 +73,7 @@
         var mytabla = $('#mydatac').DataTable({
             "ajax": {
                 url: '<?php echo site_url('modoevaluacion/modoevaluacion_data') ?>',
-                type: 'GET',
+                type: 'GET'
             },
         });
 
