@@ -6,21 +6,7 @@
 
 <div id="eys-nav-i" class="mt-4 p-2">
     <h3 class="mt-3 p-3"><?php echo $title; ?></h3>
-    <ul class="list-inline d-inline">
-        <?php if (isset($modoevaluacion) && isset($modoevaluacion['idmodoevaluacion'])) : ?>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/elprimero/', 'Primero'); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion'], 'Siguiente'); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion'], 'Anterior'); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/elultimo/', 'Último'); ?></li>
-            <li class="list-inline-item" style="border-left: 1px solid #ccc; padding-left: 10px;"><?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion'], 'Editar'); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion'], 'Quitar'); ?></li>
-            <li class="list-inline-item" style="border-left: 1px solid #ccc; padding-left: 10px;"><?php echo anchor('modoevaluacion/listar/', 'Listar'); ?></li>
-        <?php else : ?>
-            <!-- Habilitar el botón "Nuevo" si no hay ningún dato en la base de datos -->
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
-        <?php endif; ?>
-    </ul>
+    
 </div>
 
 <div class="container mt-4">
@@ -34,7 +20,7 @@
                     <?php endif; ?>
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label">Id:</label> <!-- Ajusta el ancho de la etiqueta -->
-                        <div class="col-md-9">
+                        <div class="col-md-9 mt-2">
                             <?php if (isset($modoevaluacion['idmodoevaluacion'])) : ?>
                                 <?php echo form_input('idmodoevaluacion', $modoevaluacion['idmodoevaluacion'], array("disabled" => "disabled", 'class' => 'form-control', 'placeholder' => 'Id de modoevaluación')); ?>
                             <?php endif; ?>
