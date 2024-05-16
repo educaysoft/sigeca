@@ -21,7 +21,12 @@
   <label class="col-md-2 col-form-label">Id tipo doc:</label>
   <div class="col-md-10">
     <?php echo form_input('idtiposangre',$tiposangre['idtiposangre'],array("disabled"=>"disabled",'placeholder'=>'Idtiposangre'))?>
-    
+  </div>
+</div>
+<div>
+  <label class="col-md-2 col-form-label">Descripcion:</label>
+  <div class="col-md-10">
+    <?php echo form_input('nombre',$tiposangre['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre'))?>
   </div>
 </div>
 <?php echo form_close(); ?>
