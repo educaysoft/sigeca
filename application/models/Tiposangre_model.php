@@ -7,7 +7,7 @@ class Tiposangre_model extends CI_model {
 	}
 
 	function lista_tiposangresA(){
-		 $tiposangre= $this->db->get('tiposangre1');
+		 $tiposangre= $this->db->get('tiposangre');
 		 return $tiposangre;
 	}
 
