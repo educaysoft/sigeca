@@ -34,15 +34,12 @@ if(isset($estadotrabajointegracioncurricular))
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Id:</label>
-    <div class="col-md-10">
-        <?php
-        if (isset($estadotrabajointegracioncurricular) && isset($estadotrabajointegracioncurricular['idestadotrabajointegracioncurricular'])) {
-            echo form_hidden('idestadotrabajointegracioncurricular', $estadotrabajointegracioncurricular['idestadotrabajointegracioncurricular']);
-            echo form_input('idestadotrabajointegracioncurricular', $estadotrabajointegracioncurricular['idestadotrabajointegracioncurricular'], array("disabled" => "disabled", 'placeholder' => 'Idestadotrabajointegracioncurriculars'));
-        }
-        ?>
-    </div>
-</div>
+	<div class="col-md-10">
+     <?php
+	echo form_input('idestadotrabajointegracioncurricular',$estadotrabajointegracioncurricular['idestadotrabajointegracioncurricular'],array("disabled"=>"disabled",'placeholder'=>'Idestadotrabajointegracioncurriculars'));
+	?>
+	</div> 
+</div> 
  
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Nombre:</label>
