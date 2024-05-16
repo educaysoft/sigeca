@@ -4,14 +4,15 @@
 <?php echo form_open('provincia/save_edit') ?>
     <ul>
         <li> <?php echo anchor('provincia/elprimero/', 'primero'); ?></li>
+        <?php if(isset($provincia['idprovincia'])): ?>
         <li> <?php echo anchor('provincia/anterior/'.$provincia['idprovincia'], 'anterior'); ?></li>
         <li> <?php echo anchor('provincia/siguiente/'.$provincia['idprovincia'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('provincia/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('provincia/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('provincia/edit/'.$provincia['idprovincia'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('provincia/delete/'.$provincia['idprovincia'],'Delete'); ?></li>
+        <?php endif; ?>
+        <li> <?php echo anchor('provincia/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('provincia/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('provincia/listar/','Listar'); ?></li>
-
     </ul>
 </div>
 <br>
