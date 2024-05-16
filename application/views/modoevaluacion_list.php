@@ -35,7 +35,7 @@
     }
 </style>
 
-
+<body>
 <div class="row justify-content-center">
     <!-- Page Heading -->
     <div class="row">
@@ -74,42 +74,22 @@
 </div>
 
 
-
-<script type="text/javascript">
+<script>
     $(document).ready(function() {
-        $('#mydatac').DataTable({
+        var mytabla = $('#mydatac').DataTable({
             "ajax": {
                 url: '<?php echo site_url('modoevaluacion/modoevaluacion_data') ?>',
                 type: 'GET',
-                dataSrc: '' // Esto indica que los datos devueltos ya están en el formato esperado por DataTables
             },
-            "columns": [{
-                    "data": "ID"
-                },
-                {
-                    "data": "Número"
-                },
-                {
-                    "data": "Nombre"
-                },
-                {
-                    "data": "Actions",
-                    "orderable": false,
-                    "searchable": false,
-                    "render": function(data, type, row) {
-                        return '<button class="btn btn-info">Ver</button>';
-                    }
-                }
-            ]
+        });
+
+        $('#show_data').on('click', '.item_ver', function() {
+            var id = $(this).data('idmodoevaluacion');
+            var retorno = $(this).data('retorno');
+            window.location.href = retorno + '/' + id;
         });
     });
-
-
-    $('#show_data').on('click', '.item_ver', function() {
-
-        var id = $(this).data('idmodoevaluacion');
-        var retorno = $(this).data('retorno');
-        window.location.href = retorno + '/' + id;
-
-    });
 </script>
+</body>
+
+</html>
