@@ -16,6 +16,9 @@
             <li class="list-inline-item"><?php echo anchor('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion'], 'Editar'); ?></li>
             <li class="list-inline-item"><?php echo anchor('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion'], 'Quitar'); ?></li>
             <li class="list-inline-item" style="border-left: 1px solid #ccc; padding-left: 10px;"><?php echo anchor('modoevaluacion/listar/', 'Listar'); ?></li>
+        <?php else : ?>
+            <!-- Habilitar el botón "Nuevo" si no hay ningún dato en la base de datos -->
+            <li class="list-inline-item"><?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
         <?php endif; ?>
     </ul>
 </div>
