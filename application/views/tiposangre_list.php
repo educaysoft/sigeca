@@ -1,50 +1,76 @@
-<html>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top:  0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+</style>
+
+<div id="eys-nav-i">
+    <ul>
+        <li>
+            <?php echo anchor('tiposangre','Home');?>
+        </li>
+    </ul>
+</div>
+
+<div class="row justify-content-center">
+    <div class="row">
+        <div class="col-12">
+            <div class="col-md-12">
+                <h3>Documento_estado - listar</h3>
+            </div>
+            <table class="table table-striped table-bordered table-hover" id="mydatac">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th style="text-align: right;">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="show_data">                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var mytable = $('#mydatac').DataTable({
+            "ajax": {
+                url: '<?php echo site_url('tiposangre/tiposangre_data')?>',
+                type: 'GET'
+            }
+        });
+
+        $('#show_data').on('click', '.item_ver', function(){
+            var id = $(this).data('idtiposangre');
+            var retorno = $(this).data('retorno');
+            window.location.href = retorno + '/' + id;
+        });
+    });
+</script>
 
 
-<body>
-
-<h2> <?php echo $title;  ?></h2>
-<hr/>
-<?php echo anchor('tiposangre/add', 'NUEVO ORDENADOR'); ?>
-<br>
-<br>
-
-<table border="1">
-<tr>
-<th> ID ORDENADOR</th>
-<th> DESCRIPCION</th>
-<th> cantidad</th>
-</tr>
-<tbody>
-<?php  foreach($tiposangre_list as $list) { ?>
-<tr>
-
-<td> <?php echo $list->idtiposangre ?></td>
-<td> <?php echo $list->nombre?></td>
-<td> <?php echo anchor('documento/listarxtiposangre/'.$list->idtiposangre,'ver') ?> || <?php echo anchor('documento/add/'.$list->idtiposangre,'Nuevo') ?></td>
- </tr>
-
-
-<?php } ?>
-
-</tbody>
-</table>
-
-
-
-
-
-
-
-
-</body>
-
-
-
-
-
-
-
-
-
-</html>

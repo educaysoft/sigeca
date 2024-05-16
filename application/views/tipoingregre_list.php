@@ -67,8 +67,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
  </div>
 
-
-
 <script type="text/javascript">
 
 $(document).ready(function(){
