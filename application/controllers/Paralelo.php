@@ -74,14 +74,13 @@ class Paralelo extends CI_Controller
 		$data = $this->paralelo_model->delete($this->uri->segment(3));
 		echo json_encode($data);
 		redirect('paralelo/elprimero');
-			// $db['default']['db_debug']=FALSE
+		// $db['default']['db_debug']=FALSE
 	}
 
 
 
 	public function listar()
 	{
-
 		$data['title'] = "Paralelo";
 		$this->load->view('template/page_header');
 		$this->load->view('paralelo_list', $data);
@@ -102,7 +101,7 @@ class Paralelo extends CI_Controller
 		foreach ($data0->result() as $r) {
 			$data[] = array(
 				$r->idparalelo, $r->nombre,
-				$r->href = '<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="' . site_url('paralelo/actual') . '"     data-idparalelo="' . $r->idparalelo . '">Ver</a>'
+				$r->href = '<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="' . site_url('paralelo/actual') . '" data-idparalelo="' . $r->idparalelo . '">Ver</a>'
 			);
 		}
 		$output = array(
@@ -185,5 +184,4 @@ class Paralelo extends CI_Controller
 		$this->load->view('paralelo_record', $data);
 		$this->load->view('template/page_footer');
 	}
-
 }

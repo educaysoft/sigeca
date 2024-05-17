@@ -6,22 +6,25 @@
 
 <div id="eys-nav-i" class="mt-4 p-2">
     <h3 class="mt-3 p-3"><?php echo $title; ?></h3>
-    <ul class="list-inline">
+    <ul class="list-inline border rounded">
         <?php if (isset($modoevaluacion) && isset($modoevaluacion['idmodoevaluacion'])) : ?>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/elprimero/', 'Primero'); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion'], 'Siguiente'); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion'], 'Anterior'); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/elultimo/', 'Último'); ?></li>
-            <li class="list-inline-item" style="border-left: 1px solid #ccc; padding-left: 10px;"><?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion'], 'Editar'); ?></li>
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion'], 'Quitar'); ?></li>
-            <li class="list-inline-item" style="border-left: 1px solid #ccc; padding-left: 10px;"><?php echo anchor('modoevaluacion/listar/', 'Listar'); ?></li>
+            <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/elprimero/'); ?>" class="text-decoration-none text-dark">Primero</a></li>
+            <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion']); ?>" class="text-decoration-none text-dark">Siguiente</a></li>
+            <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion']); ?>" class="text-decoration-none text-dark">Anterior</a></li>
+            <li class="list-inline-item" style="border-right:1px solid lightblue"><a href="<?php echo site_url('modoevaluacion/elultimo/'); ?>" class="text-decoration-none text-dark">Último</a></li>
+            <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/add'); ?>" class="text-decoration-none text-dark">Nuevo</a></li>
+            <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion']); ?>" class="text-decoration-none text-dark">Editar</a></li>
+            <li class="list-inline-item border-left pl-3">
+                <a href="#" onclick="openForm(<?php echo $modoevaluacion['idmodoevaluacion']; ?>)" class="text-decoration-none text-dark">Eliminar / Inhabilitar</a>
+            </li>
+            <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/listar/'); ?>" class="text-decoration-none text-dark">Listar</a></li>
         <?php else : ?>
-            <!-- Habilitar el botón "Nuevo" si no hay ningún dato en la base de datos -->
-            <li class="list-inline-item"><?php echo anchor('modoevaluacion/add', 'Nuevo'); ?></li>
+            <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/add'); ?>" class="text-decoration-none text-dark">Nuevo</a></li>
         <?php endif; ?>
     </ul>
 </div>
+
+
 
 <div class="container mt-4">
     <div class="row justify-content-center">
@@ -62,3 +65,43 @@
         </div>
     </div>
 </div>
+
+<div id="confirmationForm" style="display: none;">
+    <form id="confirmation" method="post">
+        <input type="hidden" name="id" id="confirmationId">
+        <input type="hidden" name="action" id="confirmationAction">
+        <input type="submit" value="Eliminar" onclick="submitAction('eliminar')" class="text-decoration-none text-dark">
+        <input type="submit" value="Inhabilitar" onclick="submitAction('inhabilitar')" class="text-decoration-none text-dark">
+        <input type="button" value="Cancelar" onclick="closeForm()" class="text-decoration-none text-dark">
+    </form>
+</div>
+
+<script>
+    function openForm(id) {
+        document.getElementById('confirmationId').value = id;
+        document.getElementById('confirmationForm').style.display = 'block';
+    }
+
+    function closeForm() {
+        document.getElementById('confirmationForm').style.display = 'none';
+    }
+
+    function submitAction(action) {
+        document.getElementById('confirmationAction').value = action;
+        if (action === 'eliminar') {
+            var confirmar = confirm("¿Estás seguro de que deseas eliminar este elemento?");
+            if (confirmar) {
+                document.getElementById('confirmation').action = "<?php echo site_url('modoevaluacion/delete/'); ?>" + document.getElementById('confirmationId').value;
+                document.getElementById('confirmation').submit();
+                window.location.href = "<?php echo site_url('modoevaluacion/elprimero'); ?>";
+            }
+        } else if (action === 'inhabilitar') {
+            var confirmar = confirm("¿Estás seguro de que deseas inhabilitar este elemento?");
+            if (confirmar) {
+                document.getElementById('confirmation').action = "<?php echo site_url('modoevaluacion/inhabilitar_datos/'); ?>" + document.getElementById('confirmationId').value;
+                document.getElementById('confirmation').submit();
+                window.location.href = "<?php echo site_url('modoevaluacion/elprimero'); ?>";
+            }
+        }
+    }
+</script>

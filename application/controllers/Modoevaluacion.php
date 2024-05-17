@@ -86,44 +86,41 @@ class Modoevaluacion extends CI_Controller
   }
 
   public function inhabilitar_datos($id)
-{
+  {
     // Llama al modelo para realizar la acción de inhabilitar
     $data = $this->modoevaluacion_model->inhabilitar($id);
-    
+
     // Verifica si la acción se realizó correctamente
     if ($data) {
-        // Redirige a donde desees después de inhabilitar el registro
-        redirect('modoevaluacion/elprimero');
+      // Redirige a donde desees después de inhabilitar el registro
+      redirect('modoevaluacion/elprimero');
     } else {
-        // Maneja el caso en el que la inhabilitación no fue exitosa
-        echo "Error al inhabilitar el registro.";
+      // Maneja el caso en el que la inhabilitación no fue exitosa
+      echo "Error al inhabilitar el registro.";
     }
-}
+  }
 
   public function listar()
   {
-    $data['modoevaluacion_list'] = $this->modoevaluacion_model->lista_modoevaluacions()->result();
     $data['title'] = "Modoevaluacion";
     $this->load->view('template/page_header');
     $this->load->view('modoevaluacion_list', $data);
     $this->load->view('template/page_footer');
   }
 
-  
+
   function modoevaluacion_data()
   {
     $draw = intval($this->input->get("draw"));
-    $start = intval($this->input->get("start"));
-    $length = intval($this->input->get("length"));
+    $draw = intval($this->input->get("start"));
+    $draw = intval($this->input->get("length"));
 
     $data0 = $this->modoevaluacion_model->lista_modoevaluacions();
     $data = array();
     foreach ($data0->result() as $r) {
       $data[] = array(
-        $r->idmodoevaluacion,
-        $r->numero,
-        $r->nombre,
-        '<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="' . site_url('modoevaluacion/actual') . '" data-idmodoevaluacion="' . $r->idmodoevaluacion . '">Ver</a>'
+        $r->idmodoevaluacion,$r->nombre, $r->ponderacion,
+        $r->href = '<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="' . site_url('modoevaluacion/actual') . '" data-idmodoevaluacion="' . $r->idmodoevaluacion . '">Ver</a>'
       );
     }
     $output = array(

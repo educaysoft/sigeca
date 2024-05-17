@@ -35,7 +35,6 @@
     }
 </style>
 
-
 <div class="row justify-content-center">
     <!-- Page Heading -->
     <div class="row">
@@ -43,7 +42,6 @@
             <div class="col-md-12">
                 <h3>Documento_estado - Listar
                     <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
-
                 </h3>
             </div>
 
@@ -51,8 +49,8 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Número</th>
                         <th>Nombre</th>
+                        <th>Ponderacion</th>
                         <th style="text-align: right;">Actions</th>
                     </tr>
                 </thead>
@@ -65,51 +63,19 @@
     </div>
 </div>
 
-<div class="modal fade" id="Modal_pdf" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height: 800px;">
-
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    </div>
-
-</div>
-
-
-
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#mydatac').DataTable({
+        var mytabla = $('#mydatac').DataTable({
             "ajax": {
                 url: '<?php echo site_url('modoevaluacion/modoevaluacion_data') ?>',
-                type: 'GET',
-                dataSrc: '' // Esto indica que los datos devueltos ya están en el formato esperado por DataTables
+                type: 'GET'
             },
-            "columns": [{
-                    "data": "ID"
-                },
-                {
-                    "data": "Número"
-                },
-                {
-                    "data": "Nombre"
-                },
-                {
-                    "data": "Actions",
-                    "orderable": false,
-                    "searchable": false,
-                    "render": function(data, type, row) {
-                        return '<button class="btn btn-info">Ver</button>';
-                    }
-                }
-            ]
         });
-    });
 
-
-    $('#show_data').on('click', '.item_ver', function() {
-
-        var id = $(this).data('idmodoevaluacion');
-        var retorno = $(this).data('retorno');
-        window.location.href = retorno + '/' + id;
-
+        $('#show_data').on('click', '.item_ver', function() {
+            var id = $(this).data('idmodoevaluacion');
+            var retorno = $(this).data('retorno');
+            window.location.href = retorno + '/' + id;
+        });
     });
 </script>
