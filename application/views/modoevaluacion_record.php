@@ -11,17 +11,16 @@
             <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/elprimero/'); ?>" class="text-decoration-none text-dark">Primero</a></li>
             <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion']); ?>" class="text-decoration-none text-dark">Siguiente</a></li>
             <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion']); ?>" class="text-decoration-none text-dark">Anterior</a></li>
-            <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/elultimo/'); ?>" class="text-decoration-none text-dark">Último</a></li>
-            <li class="list-inline-item border-left pl-3"><a href="<?php echo site_url('modoevaluacion/add'); ?>" class="text-decoration-none text-dark">Nuevo</a></li>
+            <li class="list-inline-item" style="border-right:1px solid green"><a href="<?php echo site_url('modoevaluacion/elultimo/'); ?>" class="text-decoration-none text-dark">Último</a></li>
+            <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/add'); ?>" class="text-decoration-none text-dark">Nuevo</a></li>
             <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion']); ?>" class="text-decoration-none text-dark">Editar</a></li>
-            <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion']); ?>" class="text-decoration-none text-dark">Quitar</a></li>
-            <li class="list-inline-item border-left pl-3"><a href="<?php echo site_url('modoevaluacion/listar/'); ?>" class="text-decoration-none text-dark">Listar</a></li>
+            <li class="list-inline-item " style="border-right:1px solid green"><a href="<?php echo site_url('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion']); ?>" class="text-decoration-none text-dark">Quitar</a></li>
+            <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/listar/'); ?>" class="text-decoration-none text-dark">Listar</a></li>
         <?php else : ?>
             <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/add'); ?>" class="text-decoration-none text-dark">Nuevo</a></li>
         <?php endif; ?>
     </ul>
 </div>
-
 
 
 <div class="container mt-4">
