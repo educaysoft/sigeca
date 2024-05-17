@@ -5,23 +5,23 @@ class Aula extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('aula_model');
-      $this->load->model('jornadadocente_model');
+/*       $this->load->model('jornadadocente_model'); */
   	  $this->load->model('institucion_model');
 }
 
 public function index(){
-	 if(isset($this->session->userdata['logged_in'])){
+/* 	 if(isset($this->session->userdata['logged_in'])){ */
 	  	$data['aula']=$this->aula_model->elultimo();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   		$data['title']="Lista de Artiulos";
 			$this->load->view('template/page_header');		
   		$this->load->view('aula_record',$data);
 			$this->load->view('template/page_footer');
- }else{
+/*  }else{
  	$this->load->view('template/page_header.php');
 	$this->load->view('login_form');
 	$this->load->view('template/page_footer.php');
-}
+} */
 }
 
 
