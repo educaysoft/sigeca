@@ -101,7 +101,7 @@ class Modoevaluacion_model extends CI_model {
 
         // Ejemplo de consulta SQL utilizando Active Record de CodeIgniter
         $this->db->set('activo', 0);
-        $this->db->where('id', $id);
+        $this->db->where('idmodoevaluacion', $id);
         $this->db->update('modoevaluacion');
 
         // Verifica si la actualización fue exitosa

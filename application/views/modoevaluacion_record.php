@@ -25,15 +25,12 @@
 </div>
 
 <div id="confirmationForm" style="display: none;">
-    <form id="confirmation" action="" method="post">
-        <input type="hidden" name="id" id="confirmationId">
-        <input type="hidden" name="action" id="confirmationAction">
-        <input type="submit" value="Eliminar" onclick="submitAction('eliminar')" class="text-decoration-none text-dark">
-        <input type="submit" value="Inhabilitar" onclick="submitAction('inhabilitar')" class="text-decoration-none text-dark">
-        <input type="button" value="Cancelar" onclick="closeForm()" class="text-decoration-none text-dark">
-    </form>
+    <input type="hidden" name="id" id="confirmationId">
+    <input type="hidden" name="action" id="confirmationAction">
+    <input type="button" value="Eliminar" onclick="submitAction('eliminar')" class="text-decoration-none text-dark">
+    <input type="button" value="Inhabilitar" onclick="submitAction('inhabilitar')" class="text-decoration-none text-dark">
+    <input type="button" value="Cancelar" onclick="closeForm()" class="text-decoration-none text-dark">
 </div>
-
 
 
 <div class="container mt-4">
@@ -90,10 +87,17 @@
     function submitAction(action) {
         document.getElementById('confirmationAction').value = action;
         if (action === 'eliminar') {
-            document.getElementById('confirmation').action = "<?php echo site_url('modoevaluacion/delete/'); ?>" + document.getElementById('confirmationId').value;
+            var confirmar = confirm("¿Estás seguro de que deseas eliminar este elemento?");
+            if (confirmar) {
+                document.getElementById('confirmation').action = "<?php echo site_url('modoevaluacion/delete/'); ?>" + document.getElementById('confirmationId').value;
+                document.getElementById('confirmation').submit();
+            }
         } else if (action === 'inhabilitar') {
-            document.getElementById('confirmation').action = "<?php echo site_url('modoevaluacion/inhabilitar_datos/'); ?>" + document.getElementById('confirmationId').value;
+            var confirmar = confirm("¿Estás seguro de que deseas inhabilitar este elemento?");
+            if (confirmar) {
+                document.getElementById('confirmation').action = "<?php echo site_url('modoevaluacion/inhabilitar_datos/'); ?>" + document.getElementById('confirmationId').value;
+                document.getElementById('confirmation').submit();
+            }
         }
-        document.getElementById('confirmation').submit();
     }
 </script>
