@@ -11,16 +11,29 @@
             <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/elprimero/'); ?>" class="text-decoration-none text-dark">Primero</a></li>
             <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/siguiente/' . $modoevaluacion['idmodoevaluacion']); ?>" class="text-decoration-none text-dark">Siguiente</a></li>
             <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/anterior/' . $modoevaluacion['idmodoevaluacion']); ?>" class="text-decoration-none text-dark">Anterior</a></li>
-            <li class="list-inline-item" style="border-right:1px solid green"><a href="<?php echo site_url('modoevaluacion/elultimo/'); ?>" class="text-decoration-none text-dark">Último</a></li>
+            <li class="list-inline-item" style="border-right:1px solid lightblue"><a href="<?php echo site_url('modoevaluacion/elultimo/'); ?>" class="text-decoration-none text-dark">Último</a></li>
             <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/add'); ?>" class="text-decoration-none text-dark">Nuevo</a></li>
             <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion']); ?>" class="text-decoration-none text-dark">Editar</a></li>
-            <li class="list-inline-item " style="border-right:1px solid green"><a href="<?php echo site_url('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion']); ?>" class="text-decoration-none text-dark">Quitar</a></li>
+            <li class="list-inline-item border-left pl-3">
+                <a href="#" onclick="openForm(<?php echo $modoevaluacion['idmodoevaluacion']; ?>)" class="text-decoration-none text-dark">Eliminar / Inhabilitar</a>
+            </li>
             <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/listar/'); ?>" class="text-decoration-none text-dark">Listar</a></li>
         <?php else : ?>
             <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/add'); ?>" class="text-decoration-none text-dark">Nuevo</a></li>
         <?php endif; ?>
     </ul>
 </div>
+
+<div id="confirmationForm" style="display: none;">
+    <form id="confirmation" action="" method="post">
+        <input type="hidden" name="id" id="confirmationId">
+        <input type="hidden" name="action" id="confirmationAction">
+        <input type="submit" value="Eliminar" onclick="submitAction('eliminar')" class="text-decoration-none text-dark">
+        <input type="submit" value="Inhabilitar" onclick="submitAction('inhabilitar')" class="text-decoration-none text-dark">
+        <input type="button" value="Cancelar" onclick="closeForm()" class="text-decoration-none text-dark">
+    </form>
+</div>
+
 
 
 <div class="container mt-4">
@@ -62,3 +75,25 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    function openForm(id) {
+        document.getElementById('confirmationId').value = id;
+        document.getElementById('confirmationForm').style.display = 'block';
+    }
+
+    function closeForm() {
+        document.getElementById('confirmationForm').style.display = 'none';
+    }
+
+    function submitAction(action) {
+        document.getElementById('confirmationAction').value = action;
+        if (action === 'eliminar') {
+            document.getElementById('confirmation').action = "<?php echo site_url('modoevaluacion/delete/'); ?>" + document.getElementById('confirmationId').value;
+        } else if (action === 'inhabilitar') {
+            document.getElementById('confirmation').action = "<?php echo site_url('modoevaluacion/inhabilitar_datos/'); ?>" + document.getElementById('confirmationId').value;
+        }
+        document.getElementById('confirmation').submit();
+    }
+</script>
