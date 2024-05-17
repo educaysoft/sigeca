@@ -33,6 +33,14 @@ class Modoevaluacion_model extends CI_model {
 		return $result;
  	}
 
+	 public function inhabilitar($id) {
+        $this->db->set('activo', 0);
+        $this->db->where('idmodoevaluacion', $id);
+        $this->db->update('modoevaluacion');
+
+        return ($this->db->affected_rows() > 0);
+    }
+
 
 	function elprimero()
 	{
@@ -95,21 +103,6 @@ class Modoevaluacion_model extends CI_model {
  	}
 
 
-	 function inhabilitar($id) {
-        // Actualiza el registro con el ID dado para inhabilitarlo
-        // Por ejemplo, puedes establecer el campo activo en 0 para inhabilitarlo
-
-        // Ejemplo de consulta SQL utilizando Active Record de CodeIgniter
-        $this->db->set('activo', 0);
-        $this->db->where('idmodoevaluacion', $id);
-        $this->db->update('modoevaluacion');
-
-        // Verifica si la actualización fue exitosa
-        if ($this->db->affected_rows() > 0) {
-            return true; // Retorna verdadero si la actualización fue exitosa
-        } else {
-            return false; // Retorna falso si la actualización falló
-        }
-    }
+	 
 }
 
