@@ -24,13 +24,6 @@
     </ul>
 </div>
 
-<div id="confirmationForm" style="display: none;">
-    <input type="hidden" name="id" id="confirmationId">
-    <input type="hidden" name="action" id="confirmationAction">
-    <input type="button" value="Eliminar" onclick="submitAction('eliminar')" class="text-decoration-none text-dark">
-    <input type="button" value="Inhabilitar" onclick="submitAction('inhabilitar')" class="text-decoration-none text-dark">
-    <input type="button" value="Cancelar" onclick="closeForm()" class="text-decoration-none text-dark">
-</div>
 
 
 <div class="container mt-4">
@@ -73,6 +66,15 @@
     </div>
 </div>
 
+<div id="confirmationForm" style="display: none;">
+    <form id="confirmation" method="post">
+        <input type="hidden" name="id" id="confirmationId">
+        <input type="hidden" name="action" id="confirmationAction">
+        <input type="submit" value="Eliminar" onclick="submitAction('eliminar')" class="text-decoration-none text-dark">
+        <input type="submit" value="Inhabilitar" onclick="submitAction('inhabilitar')" class="text-decoration-none text-dark">
+        <input type="button" value="Cancelar" onclick="closeForm()" class="text-decoration-none text-dark">
+    </form>
+</div>
 
 <script>
     function openForm(id) {
@@ -91,12 +93,14 @@
             if (confirmar) {
                 document.getElementById('confirmation').action = "<?php echo site_url('modoevaluacion/delete/'); ?>" + document.getElementById('confirmationId').value;
                 document.getElementById('confirmation').submit();
+                window.location.href = "<?php echo site_url('modoevaluacion/elprimero'); ?>";
             }
         } else if (action === 'inhabilitar') {
             var confirmar = confirm("¿Estás seguro de que deseas inhabilitar este elemento?");
             if (confirmar) {
                 document.getElementById('confirmation').action = "<?php echo site_url('modoevaluacion/inhabilitar_datos/'); ?>" + document.getElementById('confirmationId').value;
                 document.getElementById('confirmation').submit();
+                window.location.href = "<?php echo site_url('modoevaluacion/elprimero'); ?>";
             }
         }
     }
