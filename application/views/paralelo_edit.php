@@ -3,34 +3,28 @@
 <h2><?php echo $title; ?></h2>
 <hr />
 
-<div class="table-responsive">
-  <table class="table table-bordered">
-    <tr>
-      <td>Id paralelo</td>
-      <td>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="idparalelo" class="control-label">Id paralelo:</label>
         <?php
-        $eys_arrinput = array('name' => 'idparalelo', 'value' => $paralelo['idparalelo'], 'readonly' => 'true', 'class' => 'form-control', 'style' => 'width:500px');
+        $eys_arrinput = array('name' => 'idparalelo', 'value' => $paralelo['idparalelo'], 'readonly' => 'true', 'class' => 'form-control');
         echo form_input($eys_arrinput);
         ?>
-      </td>
-    </tr>
-    <tr>
-      <td>Nombre:</td>
-      <td>
+      </div>
+      <div class="form-group">
+        <label for="nombre" class="control-label">Nombre:</label>
         <?php
-        $eys_arrinput = array('name' => 'nombre', 'value' => $paralelo['nombre'], 'class' => 'form-control', 'style' => 'width:500px');
+        $eys_arrinput = array('name' => 'nombre', 'value' => $paralelo['nombre'], 'class' => 'form-control');
         echo form_input($eys_arrinput);
         ?>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <hr>
+      </div>
+      <div class="form-group">
         <?php echo form_submit('submit', 'Guardar', array('class' => 'btn btn-primary')); ?>
-        <?php echo anchor('paralelo', 'Atras', array('class' => 'btn btn-secondary')); ?>
-      </td>
-    </tr>
-  </table>
+        <?php echo anchor('paralelo', 'Atrás', array('class' => 'btn btn-secondary')); ?>
+      </div>
+    </div>
+  </div>
 </div>
-
 <?php echo form_close(); ?>
