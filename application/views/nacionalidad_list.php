@@ -38,21 +38,23 @@ body {font-family: Arial, Helvetica, sans-serif;}
             <div class="col-md-12">
                 <h3>Documento_estado - Listar </h3>
             </div>
+            <table class="table table-striped table-bordered table-hover" id="mydatac">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th style="text-align: right;">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="show_data">
+
+                </tbody>
+            </table>
+        
         </div>
 
-        <table class="table table-striped table-bordered table-hover" id="mydatac">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th style="text-align: right;">Actions</th>
-                </tr>
-            </thead>
-
-            <tbody id="show_data">
-
-            </tbody>
-        </table>
+        
     </div>
 </div>
 
