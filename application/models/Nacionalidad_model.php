@@ -7,7 +7,7 @@ class Nacionalidad_model extends CI_model {
 	}
 
 	function lista_nacionalidadesA(){
-		 $nacionalidad= $this->db->get('nacionalidad1');
+		 $nacionalidad= $this->db->get('nacionalidad');
 		 return $nacionalidad;
 	}
 

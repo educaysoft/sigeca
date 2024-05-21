@@ -78,4 +78,3 @@ $('#show_data').on('click','.item_ver',function(){
     window.location.href = retorno + '/' + id;
 });
 </script>
-
