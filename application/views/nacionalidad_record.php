@@ -1,30 +1,40 @@
 <div id="eys-nav-i">
-    <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-    <?php echo form_open('nacionalidad/save_edit') ?>
+    <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title; ?></h3>
     <ul>
-        <li> <?php echo anchor('nacionalidad/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('nacionalidad/anterior/'.$nacionalidad['idnacionalidad'], 'anterior'); ?></li>
-        <li> <?php echo anchor('nacionalidad/siguiente/'.$nacionalidad['idnacionalidad'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('nacionalidad/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('nacionalidad/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('nacionalidad/edit/'.$nacionalidad['idnacionalidad'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('nacionalidad/delete/'.$nacionalidad['idnacionalidad'],'Delete'); ?></li>
-        <li> <?php echo anchor('nacionalidad/listar/','Listar'); ?></li>
+        <?php if(isset($nacionalidad)) { ?>
+            <li> <?php echo anchor('nacionalidad/elprimero/', 'primero'); ?></li>
+            <li> <?php echo anchor('nacionalidad/siguiente/'.$nacionalidad['idnacionalidad'], 'siguiente'); ?></li>
+            <li> <?php echo anchor('nacionalidad/anterior/'.$nacionalidad['idnacionalidad'], 'anterior'); ?></li>
+            <li style="border-right:1px solid green"><?php echo anchor('nacionalidad/elultimo/', 'Último'); ?></li>
+            <li> <?php echo anchor('nacionalidad/add', 'Nuevo'); ?></li>
+            <li> <?php echo anchor('nacionalidad/edit/'.$nacionalidad['idnacionalidad'],'Edit'); ?></li>
+            <li style="border-right:1px solid green"> <?php echo anchor('nacionalidad/delete/'.$nacionalidad['idnacionalidad'],'Delete'); ?></li>
+            <li> <?php echo anchor('nacionalidad/listar/','Listar'); ?></li>
+        <?php } else { ?>
+            <li> <?php echo anchor('nacionalidad/add', 'Nuevo'); ?></li>
+        <?php } ?>
     </ul>
 </div>
 <br>
+<br>
 
-<?php echo form_hidden('idnacionalidad',$nacionalidad['idnacionalidad']) ?>
-<table style="border-collapse: collapse;">
-    <tr>
-        <td style="border: none;">Id Tipo Doc:</td>
-        <td style="border: none;"><?php echo form_input('idnacionalidad',$nacionalidad['idnacionalidad'],array("disabled"=>"disabled",'placeholder'=>'Idnacionalidads')) ?></td>
-    </tr>
-    <tr>
-        <td style="border: none;">Descripción:</td>
-        <td style="border: none;"><?php echo form_input('nombre',$nacionalidad['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre')) ?></td>
-    </tr>
-</table>
+<?php echo form_open('nacionalidad/save_edit') ?>
+<?php echo form_hidden('idnacionalidad', $nacionalidad['idnacionalidad']) ?>
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Id:</label>
+    <div class="col-md-10">
+        <?php echo form_input('idnacionalidad', $nacionalidad['idnacionalidad'], array("disabled" => "disabled", 'placeholder' => 'Idnacionalidads')); ?>
+    </div>
+</div> 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Nombre:</label>
+    <div class="col-md-10">
+        <?php echo form_input('nombre', $nacionalidad['nombre'], array('placeholder' => 'Nombre de la nacionalidad')); ?>
+    </div>
+</div> 
+
 <?php echo form_close(); ?>
 </body>
 </html>
