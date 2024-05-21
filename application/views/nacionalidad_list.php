@@ -26,9 +26,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 
 <div id="eys-nav-i">
-	<ul>
-		<li> <?php echo anchor('nacionalidad', 'Home'); ?></li>
-	</ul>
+    <ul>
+        <li> <?php echo anchor('nacionalidad', 'Home'); ?></li>
+    </ul>
 </div>
 
 <div class="row justify-content-center">
@@ -53,7 +53,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
             </table>
         
         </div>
-
         
     </div>
 </div>
@@ -69,7 +68,11 @@ $(document).ready(function(){
     var mytabla = $('#mydatac').DataTable({
         "ajax": {
             url: '<?php echo site_url('nacionalidad/nacionalidad_data')?>',
-            type: 'GET'
+            type: 'GET',
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error('Error en la solicitud Ajax:', textStatus, errorThrown);
+                alert('Ocurrió un error al cargar los datos: ' + errorThrown);
+            }
         }
     });
 });
