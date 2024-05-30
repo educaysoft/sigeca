@@ -14,9 +14,7 @@
             <li class="list-inline-item" style="border-right:1px solid lightblue"><a href="<?php echo site_url('modoevaluacion/elultimo/'); ?>" class="text-decoration-none text-dark">Último</a></li>
             <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/add'); ?>" class="text-decoration-none text-dark">Nuevo</a></li>
             <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/edit/' . $modoevaluacion['idmodoevaluacion']); ?>" class="text-decoration-none text-dark">Editar</a></li>
-            <li class="list-inline-item border-left pl-3">
-                <a href="#" onclick="openForm(<?php echo $modoevaluacion['idmodoevaluacion']; ?>)" class="text-decoration-none text-dark">Eliminar / Inhabilitar</a>
-            </li>
+            <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/delete/' . $modoevaluacion['idmodoevaluacion']); ?>" class="text-decoration-none text-dark">Eliminar</a></li>
             <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/listar/'); ?>" class="text-decoration-none text-dark">Listar</a></li>
         <?php else : ?>
             <li class="list-inline-item"><a href="<?php echo site_url('modoevaluacion/add'); ?>" class="text-decoration-none text-dark">Nuevo</a></li>

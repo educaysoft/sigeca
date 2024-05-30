@@ -33,15 +33,6 @@ class Modoevaluacion_model extends CI_model {
 		return $result;
  	}
 
-	 public function inhabilitar($id) {
-        $this->db->set('activo', 0);
-        $this->db->where('idmodoevaluacion', $id);
-        $this->db->update('modoevaluacion');
-
-        return ($this->db->affected_rows() > 0);
-    }
-
-
 	function elprimero()
 	{
 		$query=$this->db->order_by("idmodoevaluacion")->get('modoevaluacion');
