@@ -9,17 +9,17 @@ class Categoriadocente extends CI_Controller {
 
     // Método para mostrar la página principal
     public function index() {
-        if (isset($this->session->userdata['logged_in'])) {
+      //  if (isset($this->session->userdata['logged_in'])) {
             $data['categoriadocente'] = $this->categoriadocente_model->elultimo();
             $data['title'] = "Categoriadocente";
             $this->load->view('template/page_header');
             $this->load->view('categoriadocente_record', $data);
             $this->load->view('template/page_footer');
-        } else {
-            $this->load->view('template/page_header.php');
-            $this->load->view('login_form');
-            $this->load->view('template/page_footer.php');
-        }
+       // } else {
+       //     $this->load->view('template/page_header.php');
+       //     $this->load->view('login_form');
+       //     $this->load->view('template/page_footer.php');
+      //  }
     }
 
     // Método para mostrar el formulario de agregar nuevo categoriadocente
