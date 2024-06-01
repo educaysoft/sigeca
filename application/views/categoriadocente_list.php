@@ -22,7 +22,7 @@
         margin: auto;
         padding: 20px;
         border: 1px solid #888;
-        width: 80%;
+        width: 60%; /* Adjusted width */
     }
 </style>
 
@@ -55,8 +55,6 @@
     </div>
 </div>
 
-
-
 <script type="text/javascript">
     $(document).ready(function(){
         var mytabla = $('#mydatac').DataTable({
@@ -73,4 +71,3 @@
         });
     });
 </script>
-
